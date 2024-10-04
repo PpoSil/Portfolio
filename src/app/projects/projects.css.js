@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const CardSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+
+  gap: 50px;
+
+  color: var(--black);
+
+  div {
+    width: 100%;
+    height: 400px;
+    background-color: aliceblue;
+  }
+`;
+
 export const ProjectBackground = styled.div`
   position: fixed;
   top: 0;
