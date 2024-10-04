@@ -43,7 +43,7 @@ const Page = () => {
           </ul>
 
           <ImageContainer>
-            <Image src="/solbw.png" layout="fill" objectFit="cover" alt="sol" />
+            <Image src="/solbw.png" fill style={{ objectFit: 'cover' }} alt="sol" />
           </ImageContainer>
         </ImageGrid>
       </IntroSection>

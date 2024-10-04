@@ -1,18 +1,33 @@
 import styled from 'styled-components';
 
+// 950px 이하로 작아지면 세로 정렬로 변경
 export const CardSection = styled.section`
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 10fr 10fr;
+
+  margin-top: 200px;
 
   gap: 50px;
 
   color: var(--black);
 
-  div {
-    width: 100%;
-    height: 400px;
-    background-color: aliceblue;
+  h1 {
+    grid-column: 1/3;
+
+    margin: 0;
+
+    font-size: 6rem;
+    color: var(--white);
   }
+`;
+
+export const BlankCard = styled.div`
+  background-color: transparent;
+`;
+
+export const Card = styled.div`
+  background-color: var(--white);
+  height: 400px;
 `;
 
 export const ProjectBackground = styled.div`

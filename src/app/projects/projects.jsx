@@ -5,7 +5,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-import { CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
+import { BlankCard, Card, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
 
 const Projects = () => {
   // Heul-git 프로젝트
@@ -43,9 +43,8 @@ const Projects = () => {
   return (
     <CardSection>
       <h1>Projects</h1>
-      <div />
       {/* 흘깃 프로젝트 */}
-      <div onClick={clickHeulGit}> card1 </div>
+      <Card onClick={clickHeulGit}> card1 </Card>
       {showHeulGit && (
         <ProjectBackground onClick={clickHeulGit}>
           <ProjectContainer
@@ -64,8 +63,9 @@ const Projects = () => {
         </ProjectBackground>
       )}
 
+      <BlankCard />
       {/* 헤브잇 컨테아너 */}
-      <div onClick={clickHaveIt}> card2 </div>
+      <Card onClick={clickHaveIt}> card2 </Card>
       {showHaveIt && (
         <ProjectBackground onClick={clickHaveIt}>
           <ProjectContainer
@@ -85,7 +85,7 @@ const Projects = () => {
       )}
 
       {/* 싸뛰드 하우스 컨테이너 */}
-      <div onClick={clickSstudeHouse}> card3 </div>
+      <Card onClick={clickSstudeHouse}> card3 </Card>
       {showSstudeHouse && (
         <ProjectBackground onClick={clickSstudeHouse}>
           <ProjectContainer
