@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: var(--white);
+    background-color: var(--black);
     margin: 0;
     padding: 0;
   }
@@ -30,6 +30,6 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Main = styled.main`
   max-width: 1200px;
-  padding-top: 150px;
+  padding-top: 100px;
   margin: 0 auto;
 `;
