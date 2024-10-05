@@ -25,12 +25,8 @@ export const BlankCard = styled.div`
   background-color: transparent;
 `;
 
-export const Card = styled.div`
-  background-color: var(--white);
-  height: 400px;
-`;
-
 export const ProjectBackground = styled.div`
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;

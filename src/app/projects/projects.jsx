@@ -5,7 +5,8 @@
 
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-import { BlankCard, Card, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
+import { BlankCard, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
+import Cards from './cards.jsx';
 
 const Projects = () => {
   // Heul-git 프로젝트
@@ -44,7 +45,12 @@ const Projects = () => {
     <CardSection>
       <h1>Projects</h1>
       {/* 흘깃 프로젝트 */}
-      <Card onClick={clickHeulGit}> card1 </Card>
+      <Cards
+        title="Heul-Git"
+        contents={['Web', 'Mobile Web', 'Community']}
+        overview="깃허브 오픈 API를 활용한 개발자 전용 SNS 서비스"
+        onClick={clickHeulGit}
+      />
       {showHeulGit && (
         <ProjectBackground onClick={clickHeulGit}>
           <ProjectContainer
@@ -65,7 +71,12 @@ const Projects = () => {
 
       <BlankCard />
       {/* 헤브잇 컨테아너 */}
-      <Card onClick={clickHaveIt}> card2 </Card>
+      <Cards
+        title="Have-It"
+        contents={['Web', '3D', 'Metaverse', 'Mobile']}
+        overview="헬스데이터를 기반으로 만든 3D 메타버스 게임"
+        onClick={clickHaveIt}
+      />
       {showHaveIt && (
         <ProjectBackground onClick={clickHaveIt}>
           <ProjectContainer
@@ -85,7 +96,20 @@ const Projects = () => {
       )}
 
       {/* 싸뛰드 하우스 컨테이너 */}
-      <Card onClick={clickSstudeHouse}> card3 </Card>
+      <Cards
+        title="SSTUDE-HOUSE"
+        basicImage="/sstude-bw.png"
+        imageHover="/sstude-color.png"
+        contents={['Web', 'AIOT', 'Smart Mirror', 'Embedded']}
+        overview={
+          <>
+            사용자의 일상을 편안하게 만들기 위한 차세대 AIoT 프로젝트,
+            <br />
+            스마트 미러
+          </>
+        }
+        onClick={clickSstudeHouse}
+      />
       {showSstudeHouse && (
         <ProjectBackground onClick={clickSstudeHouse}>
           <ProjectContainer
