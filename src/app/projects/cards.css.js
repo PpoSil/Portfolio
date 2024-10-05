@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   background-color: var(--white);
 
   cursor: pointer;
+  overflow: hidden;
 `;
 
 export const Card = styled.div`
@@ -44,15 +45,14 @@ export const ImageContainer = styled.div`
 `;
 
 export const ContentsContainer = styled.div`
+  position: relative;
   flex: 1;
-
-  overflow: hidden;
 
   span {
     line-height: 1.4rem;
     padding: 5px 10px 4px 10px;
 
-    margin-top: 20px;
+    margin-top: 50px;
 
     letter-spacing: 1px;
     border-radius: 2rem;
@@ -61,10 +61,17 @@ export const ContentsContainer = styled.div`
 `;
 
 export const Circle = styled.div`
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+
   width: 50px;
   height: 50px;
 
   border-radius: 50%;
+
+  text-align: center;
+  align-items: center;
 
   background-color: aquamarine;
   transition:
@@ -74,7 +81,8 @@ export const Circle = styled.div`
   ${({ $isHovered }) =>
     $isHovered &&
     css`
-      transform: scale(5); // hover 시 크기 증가
-      background-color: coral; // hover 시 색상 변경
+      transform: scale(5);
+      background-color: coral;
+      opacity: 0.8;
     `}
 `;
