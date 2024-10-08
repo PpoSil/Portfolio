@@ -7,13 +7,14 @@ export const CardSection = styled.section`
 
   margin-top: 200px;
 
-  gap: 50px;
-
+  gap: 25px;
   color: var(--black);
 
   h1 {
-    grid-column: 1/3;
+    font-variation-settings: 'wght' 700;
+    line-height: 1;
 
+    grid-column: 1/3;
     margin: 0;
 
     font-size: 6rem;

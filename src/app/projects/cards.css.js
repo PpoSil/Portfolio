@@ -1,20 +1,17 @@
 import styled, { css } from 'styled-components';
 
 export const CardContainer = styled.div`
-  height: 400px;
+  height: fit-content;
 
   background-color: var(--white);
+  border-radius: 2rem;
+  overflow: hidden;
 
   cursor: pointer;
-  overflow: hidden;
 `;
 
 export const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  gap: 20px;
-
+  position: relative;
   height: 100%;
 
   background-color: var(--gray);
@@ -22,37 +19,38 @@ export const Card = styled.div`
 
 export const ImageContainer = styled.div`
   display: block;
-  position: relative;
+  position: absolute;
 
   width: 100%;
-  height: 200px;
+  height: 100%;
 
+  overflow: hidden;
+`;
+
+export const ContentsContainer = styled.div`
+  margin-left: 10px;
+  position: relative;
+  flex: 1;
   overflow: hidden;
 
   h2 {
-    position: absolute;
-    z-index: 1;
-
-    right: 0;
-    bottom: 0;
-
     margin: 0;
+    margin-left: 10px;
+    margin-top: 20px;
 
+    line-height: 1.1;
     font-size: 4rem;
     font-variation-settings: 'wght' 700;
     color: var(--white);
   }
-`;
-
-export const ContentsContainer = styled.div`
-  position: relative;
-  flex: 1;
 
   span {
+    font-size: 0.9rem;
+    display: inline-block;
     line-height: 1.4rem;
-    padding: 5px 10px 4px 10px;
-
-    margin-top: 50px;
+    padding: 2px 7px 0px 7px;
+    margin-left: 8px;
+    margin-bottom: 6px;
 
     letter-spacing: 1px;
     border-radius: 2rem;

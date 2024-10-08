@@ -9,7 +9,6 @@ const Cards = ({ title, contents = [], overview, imageHover, basicImage, onClick
     <CardContainer onClick={onClick} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <Card>
         <ImageContainer>
-          <h2>{title}</h2>
           <Image
             src={isHovered ? imageHover : basicImage} // 컬러 이미지와 회색 이미지 경로
             fill
@@ -18,6 +17,7 @@ const Cards = ({ title, contents = [], overview, imageHover, basicImage, onClick
           />
         </ImageContainer>
         <ContentsContainer>
+          <h2>{title}</h2>
           {contents.map((content, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <span key={index}>{content}</span>
