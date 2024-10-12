@@ -5,7 +5,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-import { BlankCard, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
+import { ProjectsWrapper, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
 import Cards from './cards.jsx';
 
 const Projects = () => {
@@ -42,92 +42,100 @@ const Projects = () => {
   }, [showHeulGit, showHaveIt, showSstudeHouse]);
 
   return (
-    <CardSection>
+    <ProjectsWrapper>
       <h1>Projects</h1>
-      {/* 흘깃 프로젝트 */}
-      <Cards
-        title="Heul-Git"
-        contents={['Web', 'Mobile Web', 'Community']}
-        overview="깃허브 오픈 API를 활용한 개발자 전용 SNS 서비스"
-        onClick={clickHeulGit}
-      />
-      {showHeulGit && (
-        <ProjectBackground onClick={clickHeulGit}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <HeulGitPictures />
-              <HeulGitOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HeulGitContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectBackground>
-      )}
+      <CardSection>
+        {/* 흘깃 프로젝트 */}
+        <Cards
+          title="Heul-Git"
+          contents="Web / Mobile / Community"
+          basicImage="/heul-git/card.png"
+          overview={
+            <>
+              깃허브 오픈 API를 활용한 <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자 전용 SNS 서비스.
+            </>
+          }
+          onClick={clickHeulGit}
+        />
+        {showHeulGit && (
+          <ProjectBackground onClick={clickHeulGit}>
+            <ProjectContainer
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <OverviewContainer>
+                <HeulGitPictures />
+                <HeulGitOverview />
+              </OverviewContainer>
+              <ContentsContainer>
+                <HeulGitContents />
+              </ContentsContainer>
+            </ProjectContainer>
+          </ProjectBackground>
+        )}
 
-      <BlankCard />
-      {/* 헤브잇 컨테아너 */}
-      <Cards
-        title="Have-It"
-        contents={['Web', '3D', 'Metaverse', 'Mobile']}
-        overview="헬스데이터를 기반으로 만든 3D 메타버스 게임"
-        onClick={clickHaveIt}
-      />
-      {showHaveIt && (
-        <ProjectBackground onClick={clickHaveIt}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <HaveItPictures />
-              <HaveItOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HaveItContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectBackground>
-      )}
+        {/* 헤브잇 컨테아너 */}
+        <Cards
+          title="Have-It"
+          contents="Web / 3D / Metaverse / Mobile"
+          basicImage="/have-it/card.png"
+          overview="사용자 헬스데이터 기반의 3D 메타버스 게임."
+          onClick={clickHaveIt}
+        />
+        {showHaveIt && (
+          <ProjectBackground onClick={clickHaveIt}>
+            <ProjectContainer
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <OverviewContainer>
+                <HaveItPictures />
+                <HaveItOverview />
+              </OverviewContainer>
+              <ContentsContainer>
+                <HaveItContents />
+              </ContentsContainer>
+            </ProjectContainer>
+          </ProjectBackground>
+        )}
 
-      {/* 싸뛰드 하우스 컨테이너 */}
-      <Cards
-        title="SSTUDE-HOUSE"
-        basicImage="/sstude-bw.png"
-        imageHover="/sstude-color.png"
-        contents={['Web', 'AIOT', 'Smart Mirror', 'Embedded']}
-        overview={
-          <>
-            사용자의 일상을 편안하게 만들기 위한 차세대 AIoT 프로젝트,
-            {/* <br /> */}
-            스마트 미러
-          </>
-        }
-        onClick={clickSstudeHouse}
-      />
-      {showSstudeHouse && (
-        <ProjectBackground onClick={clickSstudeHouse}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <SSTUDEHOUSEPictures />
-              <SSTUDEHOUSEOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <SSTUDEHOUSEContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectBackground>
-      )}
-    </CardSection>
+        {/* 싸뛰드 하우스 컨테이너 */}
+        <Cards
+          title="SSTUDE-HOUSE"
+          basicImage="/sstude/card.png"
+          contents="Web / AIOT / Embedded"
+          overview={
+            <>
+              사용자의 일상을 편안하게 만들기 위한
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차세대 AIoT 프로젝트, 스마트 미러.
+            </>
+          }
+          dark
+          onClick={clickSstudeHouse}
+        />
+        {showSstudeHouse && (
+          <ProjectBackground onClick={clickSstudeHouse}>
+            <ProjectContainer
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <OverviewContainer>
+                <SSTUDEHOUSEPictures />
+                <SSTUDEHOUSEOverview />
+              </OverviewContainer>
+              <ContentsContainer>
+                <SSTUDEHOUSEContents />
+              </ContentsContainer>
+            </ProjectContainer>
+          </ProjectBackground>
+        )}
+      </CardSection>
+    </ProjectsWrapper>
   );
 };
 

@@ -8,7 +8,9 @@ export const IntroSection = styled.section`
   color: var(--white);
 
   border-radius: 2rem;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--sgray);
+
+  margin-bottom: 1.5rem;
 
   h1 {
     margin: 0;
@@ -28,7 +30,7 @@ export const IntroSection = styled.section`
   ul {
     position: relative;
 
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 0;
     font-size: 1.1rem;
     line-height: 1.65;
@@ -76,27 +78,21 @@ export const ContactWrapper = styled.div`
   }
 `;
 
-export const ImageGrid = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  height: 300px;
-  margin-top: 25px;
-  gap: 50px;
-`;
-
 // 이미지 컨테이너
 export const ImageContainer = styled.div`
   display: block;
   position: relative;
 
-  width: 400px;
-  height: 300px;
+  margin-bottom: 150px;
+
+  /* width: calc((1200px - 1rem) / 2); */
+  width: auto;
+  height: 350px;
 
   overflow: hidden;
-  border-radius: 1rem;
+  /* border-radius: 2rem; */
 
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  opacity: 0.3;
+
+  mask-image: linear-gradient(to right, transparent 3%, black 20%, black 80%, transparent 97%);
 `;

@@ -1,29 +1,24 @@
 import styled from 'styled-components';
 
 // 950px 이하로 작아지면 세로 정렬로 변경
-export const CardSection = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 10fr 10fr;
-
-  margin-top: 200px;
-
-  gap: 25px;
-  color: var(--black);
-
+export const ProjectsWrapper = styled.section`
   h1 {
-    font-variation-settings: 'wght' 700;
-    line-height: 1;
-
-    grid-column: 1/3;
     margin: 0;
 
-    font-size: 6rem;
+    font-variation-settings: 'wght' 650;
+    line-height: 1;
+
+    font-size: 3rem;
     color: var(--white);
   }
 `;
 
-export const BlankCard = styled.div`
-  background-color: transparent;
+export const CardSection = styled.section`
+  padding: 2.5rem 0.4rem;
+  white-space: nowrap;
+
+  overflow-y: visible;
+  overflow-x: hidden;
 `;
 
 export const ProjectBackground = styled.div`
@@ -31,6 +26,8 @@ export const ProjectBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+
+  white-space: normal;
 
   width: 100vw;
   height: 100vh;
@@ -57,6 +54,15 @@ export const OverviewContainer = styled.div`
   /* display: flex;
   flex-direction: column;
   flex: 1; */
+
+  h1 {
+    color: var(--black);
+  }
+
+  img {
+    width: auto;
+    height: 200px;
+  }
 `;
 
 export const ContentsContainer = styled.div`
