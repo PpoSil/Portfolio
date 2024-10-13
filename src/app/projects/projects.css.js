@@ -44,16 +44,18 @@ export const ProjectContainer = styled.section`
   max-width: 1250px;
 
   margin: 0 auto;
+  padding: 0 50px;
 
   background-color: aliceblue;
 `;
 
 export const OverviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   max-width: 500px;
   height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  flex: 1; */
 
   h1 {
     color: var(--black);
@@ -63,7 +65,13 @@ export const OverviewContainer = styled.div`
     width: auto;
     height: 200px;
   }
+
+  p {
+    margin: 0;
+  }
 `;
+
+export const HeulGitOverview = styled.div``;
 
 export const ContentsContainer = styled.div`
   height: 100vh;

@@ -2,10 +2,15 @@
 
 import Image from 'next/image.js';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
 import { Main } from './global.css.js';
-import { IntroSection, ImageContainer, ContactWrapper } from './page.css.js';
+import { IntroSection, ImageContainer, ContactWrapper, ButtonContianer } from './page.css.js';
 
 import Project from '@/app/projects/projects.jsx';
+
+const topScroll = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 const Page = () => {
   return (
@@ -16,14 +21,22 @@ const Page = () => {
         <h1>An Solbi.</h1>
 
         <ContactWrapper>
-          <span>안솔비</span>
-          <span>010 4202 3113</span>
-          <span>solbi1996@gmail.com</span>
           <span>
-            Github
-            <GitHubIcon style={{ color: 'white', margin: '0 5px', fontSize: '1.3rem', lineHeight: '2rem' }} />
+            <p>안솔비</p>
           </span>
-          <span>삼성 청년 SW 아카데미 9기</span>
+          <span>
+            <p>010 4202 3113</p>
+          </span>
+          <span>
+            <p>solbi1996@gmail.com</p>
+          </span>
+          <span>
+            <p>Github</p>
+            <GitHubIcon />
+          </span>
+          <span>
+            <p>삼성 청년 SW 아카데미 9기</p>
+          </span>
         </ContactWrapper>
 
         {/* <ul>
@@ -99,6 +112,13 @@ const Page = () => {
           </div>
         </div>
       </section>
+
+      {/* 상단으로 이동 버튼 */}
+      <ButtonContianer>
+        <button type="button" onClick={topScroll}>
+          <VerticalAlignTopIcon />
+        </button>
+      </ButtonContianer>
     </Main>
   );
 };

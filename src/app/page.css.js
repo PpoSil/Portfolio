@@ -55,19 +55,30 @@ export const IntroSection = styled.section`
 
 export const ContactWrapper = styled.div`
   span {
-    display: inline-block;
+    display: inline-flex;
     /* height: 1.3rem; */
-    line-height: 1.4rem;
-    padding: 5px 10px 4px 10px;
-
+    width: fit-content;
+    padding: 5px;
     margin: 5px;
 
-    width: fit-content;
+    align-items: center;
     word-spacing: -0.2rem;
 
-    letter-spacing: 1px;
     border-radius: 2rem;
     border: 1px solid var(--sgray);
+
+    p {
+      line-height: 1.4rem;
+      letter-spacing: 1px;
+      margin: 0 5px;
+    }
+
+    svg {
+      margin-right: 1px;
+      fill: var(--white);
+      width: 1.3rem;
+      height: 1.3rem;
+    }
   }
 
   span:first-of-type {
@@ -95,4 +106,24 @@ export const ImageContainer = styled.div`
   opacity: 0.3;
 
   mask-image: linear-gradient(to right, transparent 3%, black 20%, black 80%, transparent 97%);
+`;
+
+export const ButtonContianer = styled.div`
+  text-align: center;
+
+  button {
+    margin: 20px 0;
+
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    svg {
+      width: 4rem;
+      height: 4rem;
+      fill: var(--white);
+    }
+  }
 `;
