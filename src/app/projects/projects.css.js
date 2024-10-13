@@ -58,6 +58,7 @@ export const OverviewContainer = styled.div`
   height: 100vh;
 
   h1 {
+    padding: 10px 0;
     color: var(--black);
   }
 
@@ -68,6 +69,13 @@ export const OverviewContainer = styled.div`
 
   p {
     margin: 0;
+
+    a {
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
   }
 `;
 

@@ -53,6 +53,7 @@ export const IntroSection = styled.section`
   }
 `;
 
+// 연락처 컨테이너
 export const ContactWrapper = styled.div`
   span {
     display: inline-flex;
@@ -108,11 +109,18 @@ export const ImageContainer = styled.div`
   mask-image: linear-gradient(to right, transparent 3%, black 20%, black 80%, transparent 97%);
 `;
 
+// 기술 스택 컨테이너
+export const SkillsContainer = styled.section`
+  color: var(--white);
+`;
+
+// 위로 가기 버튼 컨테이너
 export const ButtonContianer = styled.div`
   text-align: center;
 
   button {
     margin: 20px 0;
+    padding: 0;
 
     border: none;
 

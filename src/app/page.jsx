@@ -2,9 +2,11 @@
 
 import Image from 'next/image.js';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
+// import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
+// import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Main } from './global.css.js';
-import { IntroSection, ImageContainer, ContactWrapper, ButtonContianer } from './page.css.js';
+import { IntroSection, ImageContainer, ContactWrapper, ButtonContianer, SkillsContainer } from './page.css.js';
 
 import Project from '@/app/projects/projects.jsx';
 
@@ -67,7 +69,7 @@ const Page = () => {
       <Project />
 
       {/* 기술스택 컨테이너? */}
-      <section>
+      <SkillsContainer>
         <h1>기술 스택</h1>
         <div>
           <h2>프론트엔드</h2>
@@ -111,12 +113,14 @@ const Page = () => {
             <span>Source Tree</span>
           </div>
         </div>
-      </section>
+      </SkillsContainer>
 
       {/* 상단으로 이동 버튼 */}
       <ButtonContianer>
         <button type="button" onClick={topScroll}>
-          <VerticalAlignTopIcon />
+          {/* <VerticalAlignTopIcon /> */}
+          {/* <KeyboardDoubleArrowUpIcon /> */}
+          <KeyboardArrowUpIcon />
         </button>
       </ButtonContianer>
     </Main>
