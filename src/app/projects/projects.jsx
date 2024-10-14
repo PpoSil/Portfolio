@@ -6,24 +6,25 @@
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { ProjectsWrapper, CardSection, ContentsContainer, OverviewContainer, ProjectBackground, ProjectContainer } from './projects.css';
-import Cards from './cards.jsx';
+import CardWrapper from './cards.jsx';
+
+// Heul-git 프로젝트
+const HeulGitPictures = dynamic(() => import('./heul-git/pictures.mdx'));
+const HeulGitOverview = dynamic(() => import('./heul-git/overview.mdx'));
+const HeulGitContents = dynamic(() => import('./heul-git/contents.mdx'));
+
+// Have-it 프로젝트
+const HaveItPictures = dynamic(() => import('./have-it/pictures.mdx'));
+const HaveItOverview = dynamic(() => import('./have-it/overview.mdx'));
+const HaveItContents = dynamic(() => import('./have-it/contents.mdx'));
+
+// SSTUDE-HOUSE 프로젝트
+const SSTUDEHOUSEPictures = dynamic(() => import('./sstude-house/pictures.mdx'));
+const SSTUDEHOUSEOverview = dynamic(() => import('./sstude-house/overview.mdx'));
+const SSTUDEHOUSEContents = dynamic(() => import('./sstude-house/contents.mdx'));
 
 const Projects = () => {
-  // Heul-git 프로젝트
-  const HeulGitPictures = dynamic(() => import('./heul-git/pictures.mdx'));
-  const HeulGitOverview = dynamic(() => import('./heul-git/overview.mdx'));
-  const HeulGitContents = dynamic(() => import('./heul-git/contents.mdx'));
-
-  // Have-it 프로젝트
-  const HaveItPictures = dynamic(() => import('./have-it/pictures.mdx'));
-  const HaveItOverview = dynamic(() => import('./have-it/overview.mdx'));
-  const HaveItContents = dynamic(() => import('./have-it/contents.mdx'));
-
-  // SSTUDE-HOUSE 프로젝트
-  const SSTUDEHOUSEPictures = dynamic(() => import('./sstude-house/pictures.mdx'));
-  const SSTUDEHOUSEOverview = dynamic(() => import('./sstude-house/overview.mdx'));
-  const SSTUDEHOUSEContents = dynamic(() => import('./sstude-house/contents.mdx'));
-
+  // 프로젝트 상세보기 모달
   const [showHeulGit, setShowHeulGit] = useState(false);
   const clickHeulGit = () => setShowHeulGit(!showHeulGit);
 
@@ -43,10 +44,10 @@ const Projects = () => {
 
   return (
     <ProjectsWrapper>
-      <h1>Projects</h1>
-      <CardSection>
+      <h1>Projects</h1>=
+      <CardSection id="cardSlide">
         {/* 흘깃 프로젝트 */}
-        <Cards
+        <CardWrapper
           title="Heul-Git"
           contents="Web / Mobile / Community"
           basicImage="/heul-git/card.png"
@@ -77,7 +78,7 @@ const Projects = () => {
         )}
 
         {/* 헤브잇 컨테아너 */}
-        <Cards
+        <CardWrapper
           title="Have-It"
           contents="Web / 3D / Metaverse / Mobile"
           basicImage="/have-it/card.png"
@@ -103,7 +104,7 @@ const Projects = () => {
         )}
 
         {/* 싸뛰드 하우스 컨테이너 */}
-        <Cards
+        <CardWrapper
           title="SSTUDE-HOUSE"
           basicImage="/sstude/card.png"
           contents="Web / AIOT / Embedded"

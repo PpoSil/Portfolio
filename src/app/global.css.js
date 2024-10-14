@@ -30,7 +30,9 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Main = styled.main`
-  max-width: 1200px;
-  padding-top: 100px;
+  max-width: 1170px;
+  padding: 100px 15px;
   margin: 0 auto;
+
+  overflow-x: hidden;
 `;

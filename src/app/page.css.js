@@ -27,6 +27,13 @@ export const IntroSection = styled.section`
     margin-top: -15px;
   }
 
+  // 810px 이하일 때
+  @media (max-width: 810px) {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+
   ul {
     position: relative;
 
@@ -112,6 +119,59 @@ export const ImageContainer = styled.div`
 // 기술 스택 컨테이너
 export const SkillsContainer = styled.section`
   color: var(--white);
+
+  /* 바깥 div */
+  > div {
+    margin: 40px 0;
+    padding: 20px;
+
+    border-radius: 1rem;
+
+    /* 홀수 번째 div */
+    &:nth-of-type(odd) {
+      background-color: var(--sgray);
+    }
+
+    /* 짝수 번째 div */
+    &:nth-of-type(even) {
+      background-color: var(--black);
+
+      border: 1px solid var(--sgray);
+
+      /* color: var(--gray); */
+    }
+
+    /* span 담은 div */
+    > div {
+      p {
+        display: inline-block;
+
+        margin: 0;
+        padding-right: 10px;
+      }
+      span {
+        display: inline-block;
+        padding: 0 10px;
+
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 40px;
+
+    font-variation-settings: 'wght' 650;
+    line-height: 1;
+
+    font-size: 3rem;
+    color: var(--white);
+  }
+
+  h2 {
+    margin: 0;
+    padding-bottom: 20px;
+  }
 `;
 
 // 위로 가기 버튼 컨테이너

@@ -1,27 +1,15 @@
-// import { useState } from 'react';
-import { Card, ContentsContainer } from './cards.css';
+import { CardPositionSlider, Card } from './cards.css';
 
-const Cards = ({ title, contents = '', overview, basicImage, onClick, dark = false }) => {
-  // const [isHover, setIsHover] = useState(false);
+const CardWrapper = ({ title, contents = '', overview, basicImage, onClick, dark = false }) => {
   return (
-    <Card
-      onClick={onClick}
-      style={{ backgroundImage: `url(${basicImage})` }}
-      // onMouseEnter={() => setIsHover(true)}
-      // onMouseLeave={() => setIsHover(false)}
-      // isHover={isHover}
-    >
-      <ContentsContainer $dark={dark}>
+    <CardPositionSlider>
+      <Card onClick={onClick} style={{ backgroundImage: `url(${basicImage})` }} $dark={dark}>
         <h2>{title}</h2>
         <span>{contents}</span>
-        {/* {contents.map((content, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <span key={index}>{content}</span>
-        ))} */}
         <p>{overview}</p>
-      </ContentsContainer>
-    </Card>
+      </Card>
+    </CardPositionSlider>
   );
 };
 
-export default Cards;
+export default CardWrapper;

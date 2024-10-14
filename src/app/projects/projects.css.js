@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 // 950px 이하로 작아지면 세로 정렬로 변경
 export const ProjectsWrapper = styled.section`
+  margin-bottom: 78px;
   h1 {
     margin: 0;
 
@@ -14,11 +15,33 @@ export const ProjectsWrapper = styled.section`
 `;
 
 export const CardSection = styled.section`
-  padding: 2.5rem 0.4rem;
+  height: 765px;
+  position: relative;
+
+  padding: 2.5rem 7px;
   white-space: nowrap;
 
-  overflow-y: visible;
-  overflow-x: hidden;
+  overflow: hidden;
+
+  @media (max-width: 1215px) {
+    height: 1115px;
+
+    & > div:nth-child(2) {
+      position: absolute;
+      left: calc(50% - 185px);
+      transform: translateY(175px);
+    }
+
+    & > div:nth-child(3) {
+      position: absolute;
+      right: 0;
+      transform: translateY(350px);
+    }
+  }
+
+  & > div:last-child {
+    margin-right: 7px;
+  }
 `;
 
 export const ProjectBackground = styled.div`

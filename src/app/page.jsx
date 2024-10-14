@@ -70,10 +70,12 @@ const Page = () => {
 
       {/* 기술스택 컨테이너? */}
       <SkillsContainer>
-        <h1>기술 스택</h1>
+        <h1>Skills</h1>
+
         <div>
-          <h2>프론트엔드</h2>
+          <h2>Frontend</h2>
           <div>
+            <p>{'> '}</p>
             <span>JavaScript</span>
             <span>React</span>
             <span>Redux</span>
@@ -84,28 +86,30 @@ const Page = () => {
         </div>
 
         <div>
-          <h2>게임 개발</h2>
-          <span>Unity</span>
-          <span>C#</span>
-        </div>
-
-        <div>
-          <h2>백엔드</h2>
-          <span>Python</span>
-        </div>
-
-        <div>
-          <h2>코드 관리</h2>
-          <span>Git</span>
-          <span>Github</span>
-          <span>GitLab</span>
-          <span>ESlint</span>
-          <span>Prettier</span>
-        </div>
-
-        <div>
-          <h2>협업</h2>
+          <h2>Game dev</h2>
           <div>
+            <p>{'> '}</p>
+            <span>Unity</span>
+            <span>C#</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Code Management</h2>
+          <div>
+            <p>{'> '}</p>
+            <span>Git</span>
+            <span>Github</span>
+            <span>GitLab</span>
+            <span>ESlint</span>
+            <span>Prettier</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Cooperation</h2>
+          <div>
+            <p>{'> '}</p>
             <span>Jira</span>
             <span>Notion</span>
             <span>Mattermost</span>
