@@ -15,7 +15,9 @@ export const ProjectsWrapper = styled.section`
 `;
 
 export const CardSection = styled.section`
-  height: 765px;
+  height: 680px;
+  transition: height 0.8s ease;
+
   position: relative;
 
   padding: 2.5rem 7px;
@@ -24,17 +26,21 @@ export const CardSection = styled.section`
   overflow: hidden;
 
   @media (max-width: 1215px) {
-    height: 1115px;
+    height: 1030px;
 
     & > div:nth-child(2) {
       position: absolute;
+
       left: calc(50% - 185px);
+
       transform: translateY(175px);
     }
 
     & > div:nth-child(3) {
       position: absolute;
+
       right: 0;
+
       transform: translateY(350px);
     }
   }

@@ -148,6 +148,8 @@ export const SkillsContainer = styled.section`
 
         margin: 0;
         padding-right: 10px;
+
+        font-size: 1.2rem;
       }
       span {
         display: inline-block;
@@ -192,6 +194,13 @@ export const ButtonContianer = styled.div`
       width: 4rem;
       height: 4rem;
       fill: var(--white);
+    }
+
+    span {
+      display: block;
+
+      color: var(--white);
+      font-size: 1.2rem;
     }
   }
 `;

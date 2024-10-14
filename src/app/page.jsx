@@ -125,6 +125,7 @@ const Page = () => {
           {/* <VerticalAlignTopIcon /> */}
           {/* <KeyboardDoubleArrowUpIcon /> */}
           <KeyboardArrowUpIcon />
+          <span>처음으로</span>
         </button>
       </ButtonContianer>
     </Main>

@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const CardPositionSlider = styled.div`
   display: inline-block;
+
   height: 680px;
   width: 370px;
+
   margin-right: 23px;
 
   transition: transform 0.8s ease;
@@ -18,6 +20,7 @@ export const Card = styled.div`
   overflow: hidden;
 
   transition: transform 0.4s ease;
+
   backface-visibility: hidden;
   will-change: transform;
 
