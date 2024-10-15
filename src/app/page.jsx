@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image.js';
-import GitHubIcon from '@mui/icons-material/GitHub';
-// import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
-// import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Main } from './global.css.js';
-import { IntroSection, ImageContainer, ContactWrapper, ButtonContianer, SkillsContainer } from './page.css.js';
 
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+
+import Intro from '@/app/intro/intro.jsx';
+import Skills from '@/app/skills/skills.jsx';
 import Project from '@/app/projects/projects.jsx';
+
+import { ImageContainer, BackButton } from './page.css.js';
 
 const topScroll = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -16,51 +16,11 @@ const topScroll = () => {
 
 const Page = () => {
   return (
-    <Main>
+    <>
       {/* 인트로 컨테이너 */}
-      <IntroSection>
-        <h1>Frontend dev</h1>
-        <h1>An Solbi.</h1>
+      <Intro />
 
-        <ContactWrapper>
-          <span>
-            <p>안솔비</p>
-          </span>
-          <span>
-            <p>010 4202 3113</p>
-          </span>
-          <span>
-            <p>solbi1996@gmail.com</p>
-          </span>
-          <span>
-            <p>Github</p>
-            <GitHubIcon />
-          </span>
-          <span>
-            <p>삼성 청년 SW 아카데미 9기</p>
-          </span>
-        </ContactWrapper>
-
-        {/* <ul>
-          [안솔비 · 연락처]
-          <li>010 - 4202 - 3113</li>
-          <li>solbi1996@gmail.com</li>
-          <li>https://github.com/PpoSil</li>
-          <li>경력: 삼성 청년 SW 아카데미 (SSAFY) 9기 수료</li>
-        </ul> */}
-
-        {/* 참여한 프로젝트 소개 컨테이너 */}
-        <ul>
-          [ 프로젝트 이력 ]<li>Heul-git (SSAFY)</li>
-          <li>
-            Have-it (SSAFY) <span>수상: 삼성 청년 SW 아카데미 우수상</span>
-          </li>
-          <li>
-            SSTUDE-HOUSE (SSAFY) <span>수상: 삼성 청년 SW 아카데미 우수상 및 결선발표회 입상</span>
-          </li>
-        </ul>
-      </IntroSection>
-
+      {/* 이미지 컨테이너 */}
       <ImageContainer>
         <Image src="/solbw2.png" fill style={{ objectFit: 'cover' }} priority alt="sol" />
       </ImageContainer>
@@ -69,66 +29,14 @@ const Page = () => {
       <Project />
 
       {/* 기술스택 컨테이너? */}
-      <SkillsContainer>
-        <h1>Skills</h1>
-
-        <div>
-          <h2>Frontend</h2>
-          <div>
-            <p>{'> '}</p>
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>Redux</span>
-            <span>Vue.js</span>
-            <span>Next.js</span>
-            <span>Styled Components</span>
-          </div>
-        </div>
-
-        <div>
-          <h2>Game dev</h2>
-          <div>
-            <p>{'> '}</p>
-            <span>Unity</span>
-            <span>C#</span>
-          </div>
-        </div>
-
-        <div>
-          <h2>Code Management</h2>
-          <div>
-            <p>{'> '}</p>
-            <span>Git</span>
-            <span>Github</span>
-            <span>GitLab</span>
-            <span>ESlint</span>
-            <span>Prettier</span>
-          </div>
-        </div>
-
-        <div>
-          <h2>Cooperation</h2>
-          <div>
-            <p>{'> '}</p>
-            <span>Jira</span>
-            <span>Notion</span>
-            <span>Mattermost</span>
-            <span>Figma</span>
-            <span>Source Tree</span>
-          </div>
-        </div>
-      </SkillsContainer>
+      <Skills />
 
       {/* 상단으로 이동 버튼 */}
-      <ButtonContianer>
-        <button type="button" onClick={topScroll}>
-          {/* <VerticalAlignTopIcon /> */}
-          {/* <KeyboardDoubleArrowUpIcon /> */}
-          <KeyboardArrowUpIcon />
-          <span>처음으로</span>
-        </button>
-      </ButtonContianer>
-    </Main>
+      <BackButton type="button" onClick={topScroll}>
+        <KeyboardArrowUpIcon />
+        처음으로
+      </BackButton>
+    </>
   );
 };
 

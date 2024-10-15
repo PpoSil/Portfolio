@@ -32,29 +32,35 @@ export const Card = styled.div`
     transform: scale(1.03) translateZ(0) perspective(1px);
   }
 
-  h2 {
+  > h2 {
     margin: 0;
     margin-top: 25px;
 
     color: ${({ $dark }) => ($dark ? 'var(--black)' : 'var(--white)')};
 
     line-height: 1.1;
+    font-family: var(--font-fira-code);
     font-size: 2.5rem;
     font-variation-settings: 'wght' 700;
   }
 
-  span {
-    font-size: 0.9rem;
+  > span {
     display: inline-block;
-    line-height: 1.4rem;
     margin-bottom: 6px;
 
     color: ${({ $dark }) => ($dark ? 'var(--black)' : 'var(--white)')};
-    letter-spacing: 1px;
+
+    font-size: 0.9rem;
+    font-variation-settings: 'wght' 500;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.3rem;
+    line-height: 1.4rem;
   }
 
-  p {
+  > p {
     color: ${({ $dark }) => ($dark ? 'var(--black)' : 'var(--white)')};
+    font-variation-settings: 'wght' 500;
+    letter-spacing: 1px;
     white-space: pre-line;
   }
 

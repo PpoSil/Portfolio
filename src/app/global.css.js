@@ -2,11 +2,11 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    font-family: var(--font-fira-code), var(--font-noto-sans-kr);
-    font-size: 16px; // 1rem을 16px로 설정
-    // 가변 폰트 무게 450으로 설정
-    font-variation-settings: 'wght' 450;
-    scrollbar-gutter: stable;
+    font-family: var(--font-open-sans), var(--font-noto-sans-kr);
+    // 1rem을 16px로 설정
+    font-size: 16px;
+    // 가변 폰트 무게 400으로 설정
+    font-variation-settings: 'wght' 430;
   }
 
   body {
@@ -15,9 +15,23 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  main {
+    max-width: 1170px;
+    padding: 100px 15px;
+    margin: 0 auto;
+
+    overflow-x: hidden;
+  }
+
   ul {
     list-style: none;
     padding: 0;
+  }
+
+  button {
+    border: none;
+    background: none;
+    font-family: var(--font-open-sans), var(--font-noto-sans-kr);
   }
 
   :root {
@@ -29,10 +43,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Main = styled.main`
-  max-width: 1170px;
-  padding: 100px 15px;
-  margin: 0 auto;
+export const CategoryTitle = styled.h1`
+  margin: 0;
 
-  overflow-x: hidden;
+  font-family: var(--font-fira-code);
+  font-size: 3rem;
+  color: var(--white);
+  font-variation-settings: 'wght' 650;
+  line-height: 1;
 `;

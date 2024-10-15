@@ -1,15 +1,21 @@
 import StyledComponentsRegistry from 'src/lib/registry.jsx';
 
 // eslint-disable-next-line camelcase
-import { Fira_Code, Noto_Sans_KR } from 'next/font/google';
+import { Fira_Code, Open_Sans, Noto_Sans_KR } from 'next/font/google';
 
-const fc = Fira_Code({
+const fontEnglishHl = Fira_Code({
   subsets: ['latin'],
   variable: '--font-fira-code',
   display: 'swap',
 });
 
-const bg = Noto_Sans_KR({
+const fontEnglishFl = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-open-sans',
+  display: 'swap',
+});
+
+const fontKorean = Noto_Sans_KR({
   subsets: ['latin'],
   variable: '--font-noto-sans-kr',
   display: 'swap',
@@ -22,9 +28,11 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="kr" className={`${fc.variable} ${bg.variable}`}>
+    <html lang="kr" className={`${fontEnglishHl.variable} ${fontEnglishFl.variable} ${fontKorean.variable}`}>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <main>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </main>
       </body>
     </html>
   );

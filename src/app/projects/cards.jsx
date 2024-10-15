@@ -1,6 +1,6 @@
 import { CardPositionSlider, Card } from './cards.css';
 
-const CardWrapper = ({ title, contents = '', overview, basicImage, onClick, dark = false }) => {
+const Cards = ({ title, contents = '', overview, basicImage, onClick, dark = false }) => {
   return (
     <CardPositionSlider>
       <Card onClick={onClick} style={{ backgroundImage: `url(${basicImage})` }} $dark={dark}>
@@ -12,4 +12,4 @@ const CardWrapper = ({ title, contents = '', overview, basicImage, onClick, dark
   );
 };
 
-export default CardWrapper;
+export default Cards;

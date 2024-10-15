@@ -1,20 +1,11 @@
 import styled from 'styled-components';
 
 // 950px 이하로 작아지면 세로 정렬로 변경
-export const ProjectsWrapper = styled.section`
+export const ProjectsSection = styled.section`
   margin-bottom: 78px;
-  h1 {
-    margin: 0;
-
-    font-variation-settings: 'wght' 650;
-    line-height: 1;
-
-    font-size: 3rem;
-    color: var(--white);
-  }
 `;
 
-export const CardSection = styled.section`
+export const Cards = styled.div`
   height: 680px;
   transition: height 0.8s ease;
 
@@ -50,7 +41,7 @@ export const CardSection = styled.section`
   }
 `;
 
-export const ProjectBackground = styled.div`
+export const ModalBackground = styled.div`
   z-index: 999;
   position: fixed;
   top: 0;
@@ -58,11 +49,8 @@ export const ProjectBackground = styled.div`
 
   white-space: normal;
 
-  width: 100vw;
-  height: 100vh;
-
-  // 뒤에 흐림 효과 넣어줘 배경에
-  background-color: var(--white);
+  width: 100%;
+  height: 100%;
 `;
 
 export const ProjectContainer = styled.section`
@@ -86,21 +74,24 @@ export const OverviewContainer = styled.div`
   max-width: 500px;
   height: 100vh;
 
-  h1 {
+  > h1 {
     padding: 10px 0;
     color: var(--black);
   }
 
-  img {
-    width: auto;
-    height: 200px;
-  }
-
-  p {
+  // 깃허브 아이콘
+  > p {
     margin: 0;
 
-    a {
-      img {
+    // 소개 사진
+    > img {
+      width: auto;
+      height: 200px;
+    }
+
+    // 깃허브 아이콘
+    > a {
+      > img {
         width: 3rem;
         height: 3rem;
       }
