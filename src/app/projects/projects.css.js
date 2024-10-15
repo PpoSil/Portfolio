@@ -61,7 +61,6 @@ export const ProjectContainer = styled.section`
   max-width: 1250px;
 
   margin: 0 auto;
-  padding: 0 50px;
 
   background-color: aliceblue;
 `;
@@ -70,6 +69,8 @@ export const OverviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  padding-left: 50px;
 
   max-width: 500px;
   height: 100vh;
@@ -88,21 +89,22 @@ export const OverviewContainer = styled.div`
       width: auto;
       height: 200px;
     }
+  }
 
-    // 깃허브 아이콘
-    > a {
-      > img {
-        width: 3rem;
-        height: 3rem;
-      }
+  // 깃허브 아이콘
+  > a {
+    > img {
+      width: 3rem;
+      height: 3rem;
     }
   }
 `;
 
-export const HeulGitOverview = styled.div``;
-
 export const ContentsContainer = styled.div`
+  padding-right: 50px;
+
   height: 100vh;
+
   overflow-x: hidden;
   overflow-y: scroll;
 `;
