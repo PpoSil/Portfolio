@@ -62,8 +62,10 @@ export const ProjectContainer = styled.section`
   flex-direction: row;
   gap: 50px;
 
-  max-width: 1250px;
-  height: calc(100% - 50px);
+  /* max-width: 1250px; */
+  width: 100vw;
+  /* height: calc(100% - 50px); */
+  height: 100%;
 
   margin: 0 auto;
 
@@ -117,8 +119,10 @@ export const ContentsContainer = styled.div`
   div {
     padding: 20px;
 
-    border: 1px solid var(--black);
-    border-radius: 2rem;
+    /* border: 1px solid var(--black);
+    border-radius: 1.5rem; */
+
+    background-color: var(--white);
 
     h2 {
       margin-top: 0;
