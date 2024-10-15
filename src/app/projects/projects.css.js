@@ -42,6 +42,10 @@ export const Cards = styled.div`
 `;
 
 export const ModalBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   z-index: 999;
   position: fixed;
   top: 0;
@@ -59,10 +63,15 @@ export const ProjectContainer = styled.section`
   gap: 50px;
 
   max-width: 1250px;
+  height: calc(100% - 50px);
 
   margin: 0 auto;
 
-  background-color: aliceblue;
+  background-color: var(--gray);
+
+  /* border-radius: 2rem; */
+
+  overflow: hidden;
 `;
 
 export const OverviewContainer = styled.div`
@@ -70,10 +79,9 @@ export const OverviewContainer = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 
-  padding-left: 50px;
+  padding: 20px 0 20px 50px;
 
   max-width: 500px;
-  height: 100vh;
 
   > h1 {
     padding: 10px 0;
@@ -101,10 +109,19 @@ export const OverviewContainer = styled.div`
 `;
 
 export const ContentsContainer = styled.div`
-  padding-right: 50px;
-
-  height: 100vh;
+  padding: 20px 50px 20px 0;
 
   overflow-x: hidden;
   overflow-y: scroll;
+
+  div {
+    padding: 20px;
+
+    border: 1px solid var(--black);
+    border-radius: 2rem;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
 `;
