@@ -41,39 +41,26 @@ export const Cards = styled.div`
   }
 `;
 
-export const ModalBackground = styled.div`
-  display: flex;
+export const ProjectContainer = styled.section`
+  display: ${({ $show }) => ($show ? 'flex' : 'none')};
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  gap: 50px;
+
+  width: 100%;
+  height: 100%;
 
   z-index: 999;
   position: fixed;
   top: 0;
   left: 0;
 
-  white-space: normal;
-
-  width: 100%;
-  height: 100%;
-`;
-
-export const ProjectContainer = styled.section`
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-
-  /* max-width: 1250px; */
-  width: 100vw;
-  /* height: calc(100% - 50px); */
-  height: 100%;
-
-  margin: 0 auto;
-
   background-color: var(--gray);
 
-  /* border-radius: 2rem; */
-
-  overflow: hidden;
+  will-change: display;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `;
 
 export const OverviewContainer = styled.div`
@@ -113,12 +100,7 @@ export const OverviewContainer = styled.div`
 export const ContentsContainer = styled.div`
   padding: 20px 50px 20px 0;
 
-  overflow-x: hidden;
-  overflow-y: scroll;
-
   div {
-    padding: 20px;
-
     /* border: 1px solid var(--black);
     border-radius: 1.5rem; */
 
@@ -128,4 +110,14 @@ export const ContentsContainer = styled.div`
       margin-top: 0;
     }
   }
+`;
+
+export const ProjectExitButton = styled.button`
+  position: fixed;
+  left: 20px;
+  top: 20px;
+
+  font-size: 1rem;
+
+  cursor: pointer;
 `;

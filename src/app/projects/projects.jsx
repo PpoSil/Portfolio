@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 
 import { CategoryTitle } from '@/app/global.css.js';
-import { ProjectsSection, Cards, ContentsContainer, OverviewContainer, ModalBackground, ProjectContainer } from './projects.css';
+import { ProjectsSection, Cards, ContentsContainer, OverviewContainer, ProjectContainer, ProjectExitButton } from './projects.css';
 import Card from './cards.jsx';
 
 // Heul-git 프로젝트
@@ -28,13 +28,16 @@ const SSTUDEHOUSEContents = dynamic(() => import('./sstude-house/contents.mdx'))
 const Projects = () => {
   // 프로젝트 상세보기 모달
   const [showHeulGit, setShowHeulGit] = useState(false);
-  const clickHeulGit = () => setShowHeulGit(!showHeulGit);
-
   const [showHaveIt, setShowHaveIt] = useState(false);
-  const clickHaveIt = () => setShowHaveIt(!showHaveIt);
-
   const [showSstudeHouse, setShowSstudeHouse] = useState(false);
-  const clickSstudeHouse = () => setShowSstudeHouse(!showSstudeHouse);
+
+  const openHeulGit = () => setShowHeulGit(true);
+  const openHaveIt = () => setShowHaveIt(true);
+  const openSstudeHouse = () => setShowSstudeHouse(true);
+
+  const closeHeulGit = () => setShowHeulGit(false);
+  const closeHaveIt = () => setShowHaveIt(false);
+  const closeSstudeHouse = () => setShowSstudeHouse(false);
 
   useEffect(() => {
     if (showHeulGit || showHaveIt || showSstudeHouse) {
@@ -59,7 +62,7 @@ const Projects = () => {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자 전용 SNS 서비스.
             </>
           }
-          onClick={clickHeulGit}
+          onClick={openHeulGit}
         />
 
         {/* 헤브잇 프로젝트 카드 */}
@@ -68,7 +71,7 @@ const Projects = () => {
           contents="Web / 3D / Metaverse / Mobile"
           basicImage="/have-it/card.png"
           overview="사용자 헬스데이터 기반의 3D 메타버스 게임."
-          onClick={clickHaveIt}
+          onClick={openHaveIt}
         />
 
         {/* 싸뛰드 하우스 프로젝트 카드 */}
@@ -84,67 +87,69 @@ const Projects = () => {
             </>
           }
           dark
-          onClick={clickSstudeHouse}
+          onClick={openSstudeHouse}
         />
       </Cards>
 
       {/* 흘깃 프로젝트 모달 */}
-      {showHeulGit && (
-        <ModalBackground onClick={clickHeulGit}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <HeulGitPictures />
-              <HeulGitOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HeulGitContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ModalBackground>
-      )}
+      <ProjectContainer
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        $show={showHeulGit}
+      >
+        <ExitButton closeModal={closeHeulGit} />
+        <OverviewContainer>
+          <HeulGitPictures />
+          <HeulGitOverview />
+        </OverviewContainer>
+        <ContentsContainer>
+          <HeulGitContents />
+        </ContentsContainer>
+      </ProjectContainer>
+
+      {/* 해브잇 프로젝트 모달 */}
+      <ProjectContainer
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        $show={showHaveIt}
+      >
+        <ExitButton closeModal={closeHaveIt} />
+        <OverviewContainer>
+          <HaveItPictures />
+          <HaveItOverview />
+        </OverviewContainer>
+        <ContentsContainer>
+          <HaveItContents />
+        </ContentsContainer>
+      </ProjectContainer>
 
       {/* 싸뛰드 하우스 프로젝트 모달 */}
-      {showHaveIt && (
-        <ModalBackground onClick={clickHaveIt}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <HaveItPictures />
-              <HaveItOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HaveItContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ModalBackground>
-      )}
-
-      {/* 싸뛰드 하우스 프로젝트 카드 */}
-      {showSstudeHouse && (
-        <ModalBackground onClick={clickSstudeHouse}>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer>
-              <SSTUDEHOUSEPictures />
-              <SSTUDEHOUSEOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <SSTUDEHOUSEContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ModalBackground>
-      )}
+      <ProjectContainer
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        $show={showSstudeHouse}
+      >
+        <ExitButton closeModal={closeSstudeHouse} />
+        <OverviewContainer>
+          <SSTUDEHOUSEPictures />
+          <SSTUDEHOUSEOverview />
+        </OverviewContainer>
+        <ContentsContainer>
+          <SSTUDEHOUSEContents />
+        </ContentsContainer>
+      </ProjectContainer>
     </ProjectsSection>
+  );
+};
+
+const ExitButton = ({ closeModal }) => {
+  return (
+    <ProjectExitButton type="button" onClick={closeModal}>
+      뒤로가기
+    </ProjectExitButton>
   );
 };
 
