@@ -41,19 +41,53 @@ export const Cards = styled.div`
   }
 `;
 
-export const ProjectContainer = styled.section`
-  display: ${({ $show }) => ($show ? 'flex' : 'none')};
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 50px;
-
+export const ProjectTopbar = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  height: 40px;
 
   z-index: 999;
   position: fixed;
   top: 0;
+  left: 0;
+
+  background-color: var(--white);
+`;
+
+export const ProjectExitButton = styled.button`
+  display: flex;
+  align-items: center;
+
+  height: fit-content;
+  padding: 2px 4px 2px 2px;
+  margin-left: 5px;
+
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+
+  border-radius: 0.3rem;
+
+  &:hover {
+    background-color: var(--gray);
+  }
+`;
+
+export const ProjectContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 50px;
+  /* padding-top: 3rem; */
+
+  width: 100%;
+  height: calc(100% - 40px);
+
+  z-index: 999;
+  position: fixed;
+  top: 40px;
   left: 0;
 
   background-color: var(--gray);
@@ -66,18 +100,43 @@ export const ProjectContainer = styled.section`
 export const OverviewContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 
-  padding: 20px 0 20px 50px;
+  margin-top: 3rem;
 
   max-width: 500px;
 
-  > h1 {
-    padding: 10px 0;
+  /* padding: 20px 0 20px 50px; */
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > h1 {
+      margin: 15px 0;
+
+      font-size: 2.5rem;
+      font-variation-settings: 'wght' 600;
+      color: var(--black);
+    }
+
+    // 깃허브 아이콘
+    a {
+      > img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  > h2 {
+    margin: 10px 0;
+
+    font-size: 1.5rem;
+    font-variation-settings: 'wght' 400;
     color: var(--black);
   }
 
-  // 깃허브 아이콘
   > p {
     margin: 0;
 
@@ -89,18 +148,17 @@ export const OverviewContainer = styled.div`
   }
 
   // 깃허브 아이콘
-  > a {
-    > img {
-      width: 3rem;
-      height: 3rem;
-    }
-  }
 `;
 
 export const ContentsContainer = styled.div`
-  padding: 20px 50px 20px 0;
+  /* padding: 20px 50px 20px 0; */
+  margin-top: 3rem;
+
+  max-width: 900px;
 
   div {
+    margin-bottom: 40px;
+    padding: 20px 30px;
     /* border: 1px solid var(--black);
     border-radius: 1.5rem; */
 
@@ -110,14 +168,9 @@ export const ContentsContainer = styled.div`
       margin-top: 0;
     }
   }
-`;
 
-export const ProjectExitButton = styled.button`
-  position: fixed;
-  left: 20px;
-  top: 20px;
-
-  font-size: 1rem;
-
-  cursor: pointer;
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;

@@ -3,49 +3,65 @@
 
 'use client';
 
-import dynamic from 'next/dynamic';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
+
 import { CategoryTitle } from '@/app/global.css.js';
-import { ProjectsSection, Cards, ContentsContainer, OverviewContainer, ProjectContainer, ProjectExitButton } from './projects.css';
+import { ProjectsSection, Cards, ContentsContainer, OverviewContainer, ProjectContainer, ProjectTopbar, ProjectExitButton } from './projects.css';
 import Card from './cards.jsx';
 
 // Heul-git 프로젝트
-const HeulGitPictures = dynamic(() => import('./heul-git/pictures.mdx'));
-const HeulGitOverview = dynamic(() => import('./heul-git/overview.mdx'));
-const HeulGitContents = dynamic(() => import('./heul-git/contents.mdx'));
+import HeulGitPictures from '@/app/projects/heul-git/pictures.mdx';
+import HeulGitOverview from '@/app/projects/heul-git/overview.mdx';
+import HeulGitContents from '@/app/projects/heul-git/contents.mdx';
 
 // Have-it 프로젝트
-const HaveItPictures = dynamic(() => import('./have-it/pictures.mdx'));
-const HaveItOverview = dynamic(() => import('./have-it/overview.mdx'));
-const HaveItContents = dynamic(() => import('./have-it/contents.mdx'));
+import HaveItPictures from '@/app/projects/have-it/pictures.mdx';
+import HaveItOverview from '@/app/projects/have-it/overview.mdx';
+import HaveItContents from '@/app/projects/have-it/contents.mdx';
 
 // SSTUDE-HOUSE 프로젝트
-const SSTUDEHOUSEPictures = dynamic(() => import('./sstude-house/pictures.mdx'));
-const SSTUDEHOUSEOverview = dynamic(() => import('./sstude-house/overview.mdx'));
-const SSTUDEHOUSEContents = dynamic(() => import('./sstude-house/contents.mdx'));
+import SSTUDEHOUSEPictures from '@/app/projects/sstude-house/pictures.mdx';
+import SSTUDEHOUSEOverview from '@/app/projects/sstude-house/overview.mdx';
+import SSTUDEHOUSEContents from '@/app/projects/sstude-house/contents.mdx';
 
 const Projects = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const projectName = searchParams.get('project');
+
   // 프로젝트 상세보기 모달
-  const [showHeulGit, setShowHeulGit] = useState(false);
-  const [showHaveIt, setShowHaveIt] = useState(false);
-  const [showSstudeHouse, setShowSstudeHouse] = useState(false);
-
-  const openHeulGit = () => setShowHeulGit(true);
-  const openHaveIt = () => setShowHaveIt(true);
-  const openSstudeHouse = () => setShowSstudeHouse(true);
-
-  const closeHeulGit = () => setShowHeulGit(false);
-  const closeHaveIt = () => setShowHaveIt(false);
-  const closeSstudeHouse = () => setShowSstudeHouse(false);
+  const [showProjectNumb, setShowProjectNumb] = useState(0);
 
   useEffect(() => {
-    if (showHeulGit || showHaveIt || showSstudeHouse) {
-      document.body.style.overflow = 'hidden';
-    } else {
+    // 주소 파라미터에 따라 프로젝트 상세보기 모달을 띄움
+    if (projectName === null) {
       document.body.style.overflow = 'auto';
+      setShowProjectNumb(0);
+    } else {
+      document.body.style.overflow = 'hidden';
+      if (projectName === 'heul-git') {
+        setShowProjectNumb(1);
+      } else if (projectName === 'have-it') {
+        setShowProjectNumb(2);
+      } else if (projectName === 'sstude-house') {
+        setShowProjectNumb(3);
+      }
     }
-  }, [showHeulGit, showHaveIt, showSstudeHouse]);
+  }, [projectName]);
+
+  const openProject = (name) => {
+    // 프로젝트 상세보기 파라미터 추가
+    router.push(`${pathname}?project=${name}`, { scroll: false });
+  };
+
+  const closeProject = () => {
+    // 프로젝트 상세보기 모달 닫기, 뒤로가기
+    router.back();
+  };
 
   return (
     <ProjectsSection>
@@ -62,7 +78,9 @@ const Projects = () => {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자 전용 SNS 서비스.
             </>
           }
-          onClick={openHeulGit}
+          onClick={() => {
+            openProject('heul-git');
+          }}
         />
 
         {/* 헤브잇 프로젝트 카드 */}
@@ -71,7 +89,9 @@ const Projects = () => {
           contents="Web / 3D / Metaverse / Mobile"
           basicImage="/have-it/card.png"
           overview="사용자 헬스데이터 기반의 3D 메타버스 게임."
-          onClick={openHaveIt}
+          onClick={() => {
+            openProject('have-it');
+          }}
         />
 
         {/* 싸뛰드 하우스 프로젝트 카드 */}
@@ -87,69 +107,79 @@ const Projects = () => {
             </>
           }
           dark
-          onClick={openSstudeHouse}
+          onClick={() => {
+            openProject('sstude-house');
+          }}
         />
       </Cards>
 
+      {showProjectNumb !== 0 && <ProjectMenu closeProject={closeProject} />}
+
       {/* 흘깃 프로젝트 모달 */}
-      <ProjectContainer
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        $show={showHeulGit}
-      >
-        <ExitButton closeModal={closeHeulGit} />
-        <OverviewContainer>
-          <HeulGitPictures />
-          <HeulGitOverview />
-        </OverviewContainer>
-        <ContentsContainer>
-          <HeulGitContents />
-        </ContentsContainer>
-      </ProjectContainer>
+      {showProjectNumb === 1 && (
+        <ProjectContainer
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {/* <ExitButton closeModal={closeProject} /> */}
+          <OverviewContainer>
+            <HeulGitPictures />
+            <HeulGitOverview />
+          </OverviewContainer>
+          <ContentsContainer>
+            <HeulGitContents />
+          </ContentsContainer>
+        </ProjectContainer>
+      )}
 
       {/* 해브잇 프로젝트 모달 */}
-      <ProjectContainer
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        $show={showHaveIt}
-      >
-        <ExitButton closeModal={closeHaveIt} />
-        <OverviewContainer>
-          <HaveItPictures />
-          <HaveItOverview />
-        </OverviewContainer>
-        <ContentsContainer>
-          <HaveItContents />
-        </ContentsContainer>
-      </ProjectContainer>
+      {showProjectNumb === 2 && (
+        <ProjectContainer
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {/* <ExitButton closeModal={closeProject} /> */}
+          <OverviewContainer>
+            <HaveItPictures />
+            <HaveItOverview />
+          </OverviewContainer>
+          <ContentsContainer>
+            <HaveItContents />
+          </ContentsContainer>
+        </ProjectContainer>
+      )}
 
       {/* 싸뛰드 하우스 프로젝트 모달 */}
-      <ProjectContainer
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        $show={showSstudeHouse}
-      >
-        <ExitButton closeModal={closeSstudeHouse} />
-        <OverviewContainer>
-          <SSTUDEHOUSEPictures />
-          <SSTUDEHOUSEOverview />
-        </OverviewContainer>
-        <ContentsContainer>
-          <SSTUDEHOUSEContents />
-        </ContentsContainer>
-      </ProjectContainer>
+      {showProjectNumb === 3 && (
+        <ProjectContainer
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          {/* <ExitButton closeModal={closeProject} /> */}
+          <OverviewContainer>
+            <SSTUDEHOUSEPictures />
+            <SSTUDEHOUSEOverview />
+          </OverviewContainer>
+          <ContentsContainer>
+            <SSTUDEHOUSEContents />
+          </ContentsContainer>
+        </ProjectContainer>
+      )}
     </ProjectsSection>
   );
 };
 
-const ExitButton = ({ closeModal }) => {
+const ProjectMenu = ({ closeProject }) => {
   return (
-    <ProjectExitButton type="button" onClick={closeModal}>
-      뒤로가기
-    </ProjectExitButton>
+    <ProjectTopbar>
+      <ProjectExitButton type="button" onClick={closeProject}>
+        <ArticleRoundedIcon />
+        &nbsp;원문으로
+      </ProjectExitButton>
+    </ProjectTopbar>
   );
 };
 

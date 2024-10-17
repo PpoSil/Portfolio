@@ -2,7 +2,7 @@
 
 import Image from 'next/image.js';
 
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 
 import Intro from '@/app/intro/intro.jsx';
 import Skills from '@/app/skills/skills.jsx';
@@ -33,7 +33,7 @@ const Page = () => {
 
       {/* 상단으로 이동 버튼 */}
       <BackButton type="button" onClick={topScroll}>
-        <KeyboardArrowUpIcon />
+        <KeyboardArrowUpRoundedIcon />
         처음으로
       </BackButton>
     </>
