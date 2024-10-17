@@ -9,7 +9,16 @@ import { useState, useEffect } from 'react';
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 
 import { CategoryTitle } from '@/app/global.css.js';
-import { ProjectsSection, Cards, ContentsContainer, OverviewContainer, ProjectContainer, ProjectTopbar, ProjectExitButton } from './projects.css';
+import {
+  ProjectsSection,
+  Cards,
+  ContentsContainer,
+  OverviewContainer,
+  ProjectWrapper,
+  ProjectContainer,
+  ProjectTopbar,
+  ProjectExitButton,
+} from './projects.css';
 import Card from './cards.jsx';
 
 // Heul-git 프로젝트
@@ -117,56 +126,61 @@ const Projects = () => {
 
       {/* 흘깃 프로젝트 모달 */}
       {showProjectNumb === 1 && (
-        <ProjectContainer
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {/* <ExitButton closeModal={closeProject} /> */}
-          <OverviewContainer>
-            <HeulGitPictures />
-            <HeulGitOverview />
-          </OverviewContainer>
-          <ContentsContainer>
-            <HeulGitContents />
-          </ContentsContainer>
-        </ProjectContainer>
+        <ProjectWrapper>
+          <ProjectContainer
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {/* <ExitButton closeModal={closeProject} /> */}
+            <OverviewContainer>
+              <HeulGitPictures />
+              <HeulGitOverview />
+            </OverviewContainer>
+            <ContentsContainer>
+              <HeulGitContents />
+            </ContentsContainer>
+          </ProjectContainer>
+        </ProjectWrapper>
       )}
 
       {/* 해브잇 프로젝트 모달 */}
       {showProjectNumb === 2 && (
-        <ProjectContainer
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {/* <ExitButton closeModal={closeProject} /> */}
-          <OverviewContainer>
-            <HaveItPictures />
-            <HaveItOverview />
-          </OverviewContainer>
-          <ContentsContainer>
-            <HaveItContents />
-          </ContentsContainer>
-        </ProjectContainer>
+        <ProjectWrapper>
+          <ProjectContainer
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <OverviewContainer>
+              <HaveItPictures />
+              <HaveItOverview />
+            </OverviewContainer>
+            <ContentsContainer>
+              <HaveItContents />
+            </ContentsContainer>
+          </ProjectContainer>
+        </ProjectWrapper>
       )}
 
       {/* 싸뛰드 하우스 프로젝트 모달 */}
       {showProjectNumb === 3 && (
-        <ProjectContainer
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {/* <ExitButton closeModal={closeProject} /> */}
-          <OverviewContainer>
-            <SSTUDEHOUSEPictures />
-            <SSTUDEHOUSEOverview />
-          </OverviewContainer>
-          <ContentsContainer>
-            <SSTUDEHOUSEContents />
-          </ContentsContainer>
-        </ProjectContainer>
+        <ProjectWrapper>
+          <ProjectContainer
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {/* <ExitButton closeModal={closeProject} /> */}
+            <OverviewContainer>
+              <SSTUDEHOUSEPictures />
+              <SSTUDEHOUSEOverview />
+            </OverviewContainer>
+            <ContentsContainer>
+              <SSTUDEHOUSEContents />
+            </ContentsContainer>
+          </ProjectContainer>
+        </ProjectWrapper>
       )}
     </ProjectsSection>
   );

@@ -74,38 +74,42 @@ export const ProjectExitButton = styled.button`
   }
 `;
 
+export const ProjectWrapper = styled.div`
+  width: 100%;
+  height: calc(100% - 40px);
+
+  position: fixed;
+  top: 40px;
+  left: 0;
+  z-index: 999;
+
+  background-color: var(--sgray);
+  overflow-x: hidden;
+  overflow-y: scroll;
+`;
+
 export const ProjectContainer = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
   gap: 50px;
-  /* padding-top: 3rem; */
-
-  width: 100%;
-  height: calc(100% - 40px);
-
-  z-index: 999;
-  position: fixed;
-  top: 40px;
-  left: 0;
-
-  background-color: var(--gray);
-
-  will-change: display;
-  overflow-x: hidden;
-  overflow-y: scroll;
 `;
 
 export const OverviewContainer = styled.div`
+  position: sticky;
+  min-width: 350px;
+
+  flex: 1;
   display: flex;
   flex-direction: column;
 
   margin-top: 3rem;
 
-  max-width: 500px;
-
-  /* padding: 20px 0 20px 50px; */
+  color: var(--white);
 
   div {
     display: flex;
@@ -115,17 +119,9 @@ export const OverviewContainer = styled.div`
     > h1 {
       margin: 15px 0;
 
+      font-family: var(--font-fira-code);
       font-size: 2.5rem;
       font-variation-settings: 'wght' 600;
-      color: var(--black);
-    }
-
-    // 깃허브 아이콘
-    a {
-      > img {
-        width: 3rem;
-        height: 3rem;
-      }
     }
   }
 
@@ -134,39 +130,32 @@ export const OverviewContainer = styled.div`
 
     font-size: 1.5rem;
     font-variation-settings: 'wght' 400;
-    color: var(--black);
   }
 
-  > p {
-    margin: 0;
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    // 소개 사진
-    > img {
-      width: auto;
-      height: 200px;
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    path {
+      fill: var(--white);
     }
   }
-
-  // 깃허브 아이콘
 `;
 
 export const ContentsContainer = styled.div`
-  /* padding: 20px 50px 20px 0; */
   margin-top: 3rem;
-
-  max-width: 900px;
+  flex: 2;
 
   div {
     margin-bottom: 40px;
     padding: 20px 30px;
-    /* border: 1px solid var(--black);
-    border-radius: 1.5rem; */
 
     background-color: var(--white);
-
-    h2 {
-      margin-top: 0;
-    }
   }
 
   img {
