@@ -45,13 +45,14 @@ const Projects = () => {
   // 프로젝트 상세보기 모달
   const [showProjectNumb, setShowProjectNumb] = useState(0);
 
+  // 주소 파라미터에 따라 프로젝트 상세 모달 렌더링 여부 결정
   useEffect(() => {
-    // 주소 파라미터에 따라 프로젝트 상세보기 모달을 띄움
     if (projectName === null) {
       document.body.style.overflow = 'auto';
       setShowProjectNumb(0);
     } else {
       document.body.style.overflow = 'hidden';
+
       if (projectName === 'heul-git') {
         setShowProjectNumb(1);
       } else if (projectName === 'have-it') {
@@ -61,6 +62,41 @@ const Projects = () => {
       }
     }
   }, [projectName]);
+
+  // 렌더링 후, 프로젝트 상세보기 sticky 설정
+  useEffect(() => {
+    if (showProjectNumb === 0) return;
+
+    let resizeHandler;
+
+    const setOverviewPosition = (overviewId) => {
+      const overview = document.getElementById(overviewId);
+
+      if (!overview) return;
+
+      if (window.innerHeight - 40 > overview.offsetHeight) {
+        overview.style.top = '48px';
+      } else {
+        overview.style.top = `${window.innerHeight - 88 - overview.offsetHeight}px`;
+      }
+    };
+
+    if (showProjectNumb === 1) {
+      resizeHandler = () => setOverviewPosition('heulgitOverview');
+    } else if (showProjectNumb === 2) {
+      resizeHandler = () => setOverviewPosition('haveitOverview');
+    } else if (showProjectNumb === 3) {
+      resizeHandler = () => setOverviewPosition('sstudeOverview');
+    }
+
+    window.addEventListener('resize', resizeHandler);
+    resizeHandler();
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
+  }, [showProjectNumb]);
 
   const openProject = (name) => {
     // 프로젝트 상세보기 파라미터 추가
@@ -133,7 +169,7 @@ const Projects = () => {
             }}
           >
             {/* <ExitButton closeModal={closeProject} /> */}
-            <OverviewContainer>
+            <OverviewContainer id="heulgitOverview">
               <HeulGitPictures />
               <HeulGitOverview />
             </OverviewContainer>
@@ -152,7 +188,7 @@ const Projects = () => {
               e.stopPropagation();
             }}
           >
-            <OverviewContainer>
+            <OverviewContainer id="haveitOverview">
               <HaveItPictures />
               <HaveItOverview />
             </OverviewContainer>
@@ -171,8 +207,7 @@ const Projects = () => {
               e.stopPropagation();
             }}
           >
-            {/* <ExitButton closeModal={closeProject} /> */}
-            <OverviewContainer>
+            <OverviewContainer id="sstudeOverview">
               <SSTUDEHOUSEPictures />
               <SSTUDEHOUSEOverview />
             </OverviewContainer>
