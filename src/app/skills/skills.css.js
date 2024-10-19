@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SkillsSection = styled.section`
+  position: relative;
   color: var(--white);
 
   > h1 {
@@ -8,12 +9,31 @@ export const SkillsSection = styled.section`
   }
 `;
 
+export const SkillsPattern = styled.div`
+  position: absolute;
+  top: 50%;
+  right: -100px;
+  width: 800px;
+  height: 800px;
+  z-index: -1;
+  transform: translateY(-45%);
+
+  /* background-color: var(--white); */
+  border-radius: 50%;
+  border: 1px solid var(--sgray);
+
+  @media (max-width: 1000px) {
+    left: 253px;
+  }
+`;
+
 export const Skill = styled.article`
   width: fit-content;
-  margin: 23px 0;
+  margin: 15px 0;
   padding: 30px;
   border-radius: 2rem;
 
+  background-color: var(--black);
   border: 1px solid var(--sgray);
 
   &:first-of-type {
@@ -23,8 +43,7 @@ export const Skill = styled.article`
 `;
 
 export const SkillCategory = styled.h2`
-  margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 0.5rem;
 
   font-variation-settings: 'wght' 400;
 `;
@@ -32,16 +51,7 @@ export const SkillCategory = styled.h2`
 export const SkillDescription = styled.div`
   > p {
     display: inline-block;
-
-    margin: 0;
     padding-right: 10px;
-
-    font-size: 1.2rem;
-  }
-
-  > span {
-    display: inline-block;
-    padding: 0 10px;
 
     font-size: 1.2rem;
     letter-spacing: 1px;

@@ -11,12 +11,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: var(--black);
-    margin: 0;
-    padding: 0;
   }
 
   main {
-    max-width: 1170px;
+    max-width: 1200px;
     padding: 100px 15px;
     margin: 0 auto;
 
@@ -28,10 +26,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  p, h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-  }
-
   button {
     border: none;
     background: none;
@@ -40,16 +34,22 @@ export const GlobalStyle = createGlobalStyle`
 
   :root {
     --black: #121212;
+    --tblack: #12121201;
     --white: #f5f5f5;
     --twhite: #f5f5f580;
     --gray: #a6a6a6;
     --sgray: #3d3d3d;
+    --ssgray: #2d2d2d;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 `;
 
 export const CategoryTitle = styled.h1`
-  margin: 0;
-
   font-family: var(--font-fira-code);
   font-size: 3rem;
   color: var(--white);

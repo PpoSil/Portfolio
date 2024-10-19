@@ -11,8 +11,12 @@ export const ImageContainer = styled.div`
 
   overflow: hidden;
 
-  opacity: 0.3;
+  background-color: var(--black);
   mask-image: linear-gradient(to right, transparent 3%, black 20%, black 80%, transparent 97%);
+
+  > img {
+    opacity: 0.3;
+  }
 `;
 
 // 위로 가기 버튼 컨테이너

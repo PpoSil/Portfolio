@@ -2,22 +2,35 @@ import styled from 'styled-components';
 
 // 950px 이하로 작아지면 세로 정렬로 변경
 export const ProjectsSection = styled.section`
-  margin-bottom: 78px;
+  position: relative;
+  margin-bottom: 110px;
+`;
+
+export const ProjectPattern = styled.div`
+  position: absolute;
+  top: -70px;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  z-index: -1;
+
+  /* background-color: var(--white); */
+  border-radius: 50%;
+  border: 1px solid var(--sgray);
 `;
 
 export const Cards = styled.div`
-  height: 680px;
+  height: 760px;
   transition: height 0.8s ease;
 
   position: relative;
 
-  padding: 2.5rem 7px;
+  padding: 40px 7px;
   white-space: nowrap;
-
   overflow: hidden;
 
   @media (max-width: 1215px) {
-    height: 1030px;
+    height: 1110px;
 
     & > div:nth-child(2) {
       position: absolute;
@@ -52,7 +65,8 @@ export const ProjectTopbar = styled.div`
   top: 0;
   left: 0;
 
-  background-color: var(--white);
+  border-bottom: 1px solid var(--sgray);
+  background-color: var(--black);
 `;
 
 export const ProjectExitButton = styled.button`
@@ -63,6 +77,7 @@ export const ProjectExitButton = styled.button`
   padding: 2px 4px 2px 2px;
   margin-left: 5px;
 
+  color: var(--white);
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
@@ -70,96 +85,6 @@ export const ProjectExitButton = styled.button`
   border-radius: 0.3rem;
 
   &:hover {
-    background-color: var(--gray);
-  }
-`;
-
-export const ProjectWrapper = styled.div`
-  width: 100%;
-  height: calc(100% - 40px);
-
-  position: fixed;
-  top: 40px;
-  left: 0;
-  z-index: 999;
-
-  background-color: var(--sgray);
-  overflow-x: hidden;
-  overflow-y: scroll;
-`;
-
-export const ProjectContainer = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 50px;
-`;
-
-export const OverviewContainer = styled.div`
-  position: sticky;
-  min-width: 350px;
-
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 3rem;
-
-  color: var(--white);
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > h1 {
-      margin: 15px 0;
-
-      font-family: var(--font-fira-code);
-      font-size: 2.5rem;
-      font-variation-settings: 'wght' 600;
-    }
-  }
-
-  > h2 {
-    margin: 10px 0;
-
-    font-size: 1.5rem;
-    font-variation-settings: 'wght' 400;
-  }
-
-  img {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  svg {
-    width: 2.5rem;
-    height: 2.5rem;
-
-    path {
-      fill: var(--white);
-    }
-  }
-`;
-
-export const ContentsContainer = styled.div`
-  margin-top: 3rem;
-  flex: 2;
-
-  div {
-    margin-bottom: 40px;
-    padding: 20px 30px;
-
-    background-color: var(--white);
-  }
-
-  img {
-    width: 100%;
-    margin-bottom: 20px;
+    background-color: var(--sgray);
   }
 `;

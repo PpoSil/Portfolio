@@ -13,7 +13,7 @@ export const CardPositionSlider = styled.div`
 
 export const Card = styled.div`
   height: 100%;
-  padding: 0 20px;
+  padding: 30px 20px;
 
   border-radius: 2rem;
   background-size: cover;
@@ -33,12 +33,9 @@ export const Card = styled.div`
   }
 
   > h2 {
-    margin: 0;
-    margin-top: 25px;
-
     color: ${({ $dark }) => ($dark ? 'var(--black)' : 'var(--white)')};
 
-    line-height: 1.1;
+    line-height: 1;
     font-family: var(--font-fira-code);
     font-size: 2.5rem;
     font-variation-settings: 'wght' 700;
@@ -46,15 +43,13 @@ export const Card = styled.div`
 
   > span {
     display: inline-block;
-    margin-bottom: 6px;
+    margin-bottom: 1.5rem;
 
     color: ${({ $dark }) => ($dark ? 'var(--black)' : 'var(--white)')};
-
     font-size: 0.9rem;
     font-variation-settings: 'wght' 500;
-    letter-spacing: 0.1rem;
-    word-spacing: 0.3rem;
-    line-height: 1.4rem;
+    letter-spacing: 1px;
+    word-spacing: 5px;
   }
 
   > p {

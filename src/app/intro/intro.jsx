@@ -1,10 +1,13 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { IntroSection, IntroTitle, Contacts, ProjectSimple } from './intro.css.js';
+import { IntroSection, IntroTitle, Contacts, ProjectSimple, IntroPattern } from './intro.css.js';
 
 const intro = () => {
   return (
     <IntroSection>
+      <IntroPattern>
+        <div />
+      </IntroPattern>
       <IntroTitle>Frontend dev</IntroTitle>
       <IntroTitle>An Solbi.</IntroTitle>
 

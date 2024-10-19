@@ -7,19 +7,11 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
+import Card from './cards.jsx';
+import ProjectModal from './projectModal.jsx';
 
 import { CategoryTitle } from '@/app/global.css.js';
-import {
-  ProjectsSection,
-  Cards,
-  ContentsContainer,
-  OverviewContainer,
-  ProjectWrapper,
-  ProjectContainer,
-  ProjectTopbar,
-  ProjectExitButton,
-} from './projects.css';
-import Card from './cards.jsx';
+import { ProjectsSection, ProjectPattern, Cards, ProjectTopbar, ProjectExitButton } from './projects.css';
 
 // Heul-git 프로젝트
 import HeulGitPictures from '@/app/projects/heul-git/pictures.mdx';
@@ -32,9 +24,9 @@ import HaveItOverview from '@/app/projects/have-it/overview.mdx';
 import HaveItContents from '@/app/projects/have-it/contents.mdx';
 
 // SSTUDE-HOUSE 프로젝트
-import SSTUDEHOUSEPictures from '@/app/projects/sstude-house/pictures.mdx';
-import SSTUDEHOUSEOverview from '@/app/projects/sstude-house/overview.mdx';
-import SSTUDEHOUSEContents from '@/app/projects/sstude-house/contents.mdx';
+import SstudePictures from '@/app/projects/sstude-house/pictures.mdx';
+import SstudeOverview from '@/app/projects/sstude-house/overview.mdx';
+import SstudeContents from '@/app/projects/sstude-house/contents.mdx';
 
 const Projects = () => {
   const router = useRouter();
@@ -63,41 +55,6 @@ const Projects = () => {
     }
   }, [projectName]);
 
-  // 렌더링 후, 프로젝트 상세보기 sticky 설정
-  useEffect(() => {
-    if (showProjectNumb === 0) return;
-
-    let resizeHandler;
-
-    const setOverviewPosition = (overviewId) => {
-      const overview = document.getElementById(overviewId);
-
-      if (!overview) return;
-
-      if (window.innerHeight - 40 > overview.offsetHeight) {
-        overview.style.top = '48px';
-      } else {
-        overview.style.top = `${window.innerHeight - 88 - overview.offsetHeight}px`;
-      }
-    };
-
-    if (showProjectNumb === 1) {
-      resizeHandler = () => setOverviewPosition('heulgitOverview');
-    } else if (showProjectNumb === 2) {
-      resizeHandler = () => setOverviewPosition('haveitOverview');
-    } else if (showProjectNumb === 3) {
-      resizeHandler = () => setOverviewPosition('sstudeOverview');
-    }
-
-    window.addEventListener('resize', resizeHandler);
-    resizeHandler();
-
-    // eslint-disable-next-line consistent-return
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-    };
-  }, [showProjectNumb]);
-
   const openProject = (name) => {
     // 프로젝트 상세보기 파라미터 추가
     router.push(`${pathname}?project=${name}`, { scroll: false });
@@ -110,6 +67,7 @@ const Projects = () => {
 
   return (
     <ProjectsSection>
+      <ProjectPattern />
       <CategoryTitle>Projects</CategoryTitle>
       <Cards>
         {/* 흘깃 프로젝트 카드 */}
@@ -161,62 +119,13 @@ const Projects = () => {
       {showProjectNumb !== 0 && <ProjectMenu closeProject={closeProject} />}
 
       {/* 흘깃 프로젝트 모달 */}
-      {showProjectNumb === 1 && (
-        <ProjectWrapper>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            {/* <ExitButton closeModal={closeProject} /> */}
-            <OverviewContainer id="heulgitOverview">
-              <HeulGitPictures />
-              <HeulGitOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HeulGitContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectWrapper>
-      )}
+      {showProjectNumb === 1 && <ProjectModal Pictures={HeulGitPictures} Overview={HeulGitOverview} Contents={HeulGitContents} />}
 
       {/* 해브잇 프로젝트 모달 */}
-      {showProjectNumb === 2 && (
-        <ProjectWrapper>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer id="haveitOverview">
-              <HaveItPictures />
-              <HaveItOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <HaveItContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectWrapper>
-      )}
+      {showProjectNumb === 2 && <ProjectModal Pictures={HaveItPictures} Overview={HaveItOverview} Contents={HaveItContents} />}
 
       {/* 싸뛰드 하우스 프로젝트 모달 */}
-      {showProjectNumb === 3 && (
-        <ProjectWrapper>
-          <ProjectContainer
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <OverviewContainer id="sstudeOverview">
-              <SSTUDEHOUSEPictures />
-              <SSTUDEHOUSEOverview />
-            </OverviewContainer>
-            <ContentsContainer>
-              <SSTUDEHOUSEContents />
-            </ContentsContainer>
-          </ProjectContainer>
-        </ProjectWrapper>
-      )}
+      {showProjectNumb === 3 && <ProjectModal Pictures={SstudePictures} Overview={SstudeOverview} Contents={SstudeContents} />}
     </ProjectsSection>
   );
 };

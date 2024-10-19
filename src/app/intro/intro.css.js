@@ -12,9 +12,33 @@ export const IntroSection = styled.section`
   border: 1px solid var(--sgray);
 `;
 
-export const IntroTitle = styled.h1`
-  margin: 0;
+export const IntroPattern = styled.div`
+  position: absolute;
+  bottom: -750px;
+  right: -100px;
+  width: 650px;
+  height: 450px;
+  transform: translateY(-45%);
+  overflow: hidden;
 
+  /* background-color: var(--white); */
+
+  @media (max-width: 1060px) {
+    left: 462px;
+  }
+
+  div {
+    position: absolute;
+    bottom: 1px;
+    right: 0;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    border: 1px solid var(--sgray);
+  }
+`;
+
+export const IntroTitle = styled.h1`
   font-family: var(--font-fira-code);
   font-size: 8rem;
   font-variation-settings: 'wght' 600;
@@ -37,7 +61,6 @@ export const IntroTitle = styled.h1`
 export const Contacts = styled.div`
   > span {
     display: inline-flex;
-    /* height: 1.3rem; */
     width: fit-content;
     padding: 5px;
     margin: 5px;
@@ -74,13 +97,12 @@ export const ProjectSimple = styled.ul`
   position: relative;
 
   margin-top: 100px;
-  margin-bottom: 0;
   font-size: 1.1rem;
   line-height: 1.65;
 
   > li {
-    font-size: 1rem;
     letter-spacing: 0.1rem;
+
     > span {
       display: inline-block;
 
