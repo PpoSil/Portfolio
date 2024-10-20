@@ -103,7 +103,8 @@ export const OverviewContainer = styled.div`
 
       &:hover {
         > svg path {
-          fill: var(--gray);
+          /* fill: var(--gray); */
+          fill: #898dd9;
         }
       }
 
@@ -178,7 +179,7 @@ export const ContentsContainer = styled.div`
         /* color: #e06a76; */
         /* color: #c08bbc; */
         color: #898dd9;
-        font-variation-settings: 'wght' 600;
+        font-variation-settings: 'wght' 700;
       }
     }
 

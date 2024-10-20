@@ -7,6 +7,19 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
+
+// 동그라미로 쌓여진 화살표 아이콘
+// import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+// import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+
+// 세모로 쌓여진 화살표 아이콘
+// import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+// import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+
+// 화살표 아이콘
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 import Card from './card.jsx';
 import ProjectModal from './projectModal.jsx';
 
@@ -137,6 +150,16 @@ const ProjectMenu = ({ closeProject }) => {
         <ArticleRoundedIcon />
         &nbsp;원문으로
       </ProjectExitButton>
+      <div>
+        {/* <ArrowCircleLeftIcon />
+        <ArrowCircleRightIcon /> */}
+
+        {/* <ArrowLeftIcon />
+        <ArrowRightIcon /> */}
+
+        <KeyboardArrowLeftIcon />
+        <KeyboardArrowRightIcon />
+      </div>
     </ProjectTopbar>
   );
 };

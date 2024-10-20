@@ -67,6 +67,13 @@ export const ProjectTopbar = styled.div`
 
   border-bottom: 1px solid var(--sgray);
   background-color: var(--black);
+
+  > div {
+    margin-left: auto;
+    margin-right: 5px;
+
+    color: var(--white);
+  }
 `;
 
 export const ProjectExitButton = styled.button`
