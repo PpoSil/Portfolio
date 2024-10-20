@@ -11,7 +11,7 @@ export const CardPositionSlider = styled.div`
   transition: transform 0.8s ease;
 `;
 
-export const Card = styled.div`
+export const CardWrapper = styled.div`
   height: 100%;
   padding: 30px 20px;
 

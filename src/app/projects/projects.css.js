@@ -19,7 +19,7 @@ export const ProjectPattern = styled.div`
   border: 1px solid var(--sgray);
 `;
 
-export const Cards = styled.div`
+export const CardContainer = styled.div`
   height: 760px;
   transition: height 0.8s ease;
 

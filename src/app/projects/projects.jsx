@@ -7,11 +7,11 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
-import Card from './cards.jsx';
+import Card from './card.jsx';
 import ProjectModal from './projectModal.jsx';
 
 import { CategoryTitle } from '@/app/global.css.js';
-import { ProjectsSection, ProjectPattern, Cards, ProjectTopbar, ProjectExitButton } from './projects.css';
+import { ProjectsSection, ProjectPattern, CardContainer, ProjectTopbar, ProjectExitButton } from './projects.css';
 
 // Heul-git 프로젝트
 import HeulGitPictures from '@/app/projects/heul-git/pictures.mdx';
@@ -69,7 +69,7 @@ const Projects = () => {
     <ProjectsSection>
       <ProjectPattern />
       <CategoryTitle>Projects</CategoryTitle>
-      <Cards>
+      <CardContainer>
         {/* 흘깃 프로젝트 카드 */}
         <Card
           title="Heul-Git"
@@ -114,7 +114,7 @@ const Projects = () => {
             openProject('sstude-house');
           }}
         />
-      </Cards>
+      </CardContainer>
 
       {showProjectNumb !== 0 && <ProjectMenu closeProject={closeProject} />}
 

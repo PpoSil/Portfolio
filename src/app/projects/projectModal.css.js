@@ -90,28 +90,60 @@ export const OverviewContainer = styled.div`
     justify-content: space-between;
 
     > h1 {
-      margin: 15px 0;
+      padding: 10px 0;
 
       font-family: var(--font-fira-code);
       font-size: 2.5rem;
       font-variation-settings: 'wght' 600;
     }
 
-    > a > svg {
+    > a {
       width: 2.5rem;
       height: 2.5rem;
 
-      path {
-        fill: var(--white);
+      &:hover {
+        > svg path {
+          fill: var(--gray);
+        }
+      }
+
+      > svg {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        path {
+          transition: fill 0.4s ease;
+          fill: var(--white);
+        }
       }
     }
+  }
+
+  > hr {
+    border: none;
+    border-bottom: 1px solid var(--sgray);
+    margin-bottom: 0.5rem;
   }
 
   > h2 {
     margin: 10px 0;
 
+    font-family: var(--font-fira-code);
     font-size: 1.5rem;
-    font-variation-settings: 'wght' 400;
+    font-variation-settings: 'wght' 600;
+  }
+
+  > p {
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+      margin-top: 2rem;
+      margin-bottom: 0;
+
+      color: var(--lgray);
+      letter-spacing: 1px;
+      font-variation-settings: 'wght' 500;
+    }
   }
 `;
 
@@ -126,12 +158,18 @@ export const ContentsContainer = styled.div`
     border: 1px solid var(--sgray);
     border-radius: 1rem;
 
-    > p {
+    > h2 {
       margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-variation-settings: 'wght' 600;
+    }
+
+    > p {
+      font-size: 1.1rem;
     }
 
     > hr {
-      margin: 0.5rem 0;
+      margin: 8px 0 7px 0;
       border: none;
       border-bottom: 1px solid var(--sgray);
     }
@@ -145,7 +183,10 @@ export const ContentsContainer = styled.div`
     color: var(--white);
 
     > summary {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      font-variation-settings: 'wght' 600;
+
+      cursor: pointer;
     }
     > div {
       // 사진 설명 기준점 relative로 설정

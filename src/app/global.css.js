@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     --tblack: #12121201;
     --white: #f5f5f5;
     --twhite: #f5f5f580;
+    --lgray: #bbbbbb;
     --gray: #a6a6a6;
     --sgray: #3d3d3d;
     --ssgray: #2d2d2d;
@@ -46,6 +47,12 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  /* 텍스트 배경색 변경 */
+  ::selection {
+    background-color: var(--lgray);
+    color: var(--black);
   }
 `;
 
