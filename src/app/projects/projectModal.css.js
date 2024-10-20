@@ -164,8 +164,22 @@ export const ContentsContainer = styled.div`
       font-variation-settings: 'wght' 600;
     }
 
+    > h3 {
+      margin-bottom: 0.5rem;
+
+      font-size: 1.2rem;
+      font-variation-settings: 'wght' 600;
+    }
+
     > p {
       font-size: 1.1rem;
+
+      > strong {
+        /* color: #e06a76; */
+        /* color: #c08bbc; */
+        color: #898dd9;
+        font-variation-settings: 'wght' 600;
+      }
     }
 
     > hr {
