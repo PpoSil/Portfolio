@@ -1,6 +1,12 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { IntroSection, IntroTitle, Contacts, ProjectSimple, IntroPattern } from './intro.css.js';
+import {
+  IntroSection,
+  IntroTitle,
+  Contacts,
+  ProjectSimple,
+  IntroPattern,
+} from './intro.css.js';
 
 const intro = () => {
   return (
@@ -21,7 +27,12 @@ const intro = () => {
         <span>
           <p>solbi1996@gmail.com</p>
         </span>
-        <a href="https://github.com/PpoSil" target="_blank" rel="noreferrer" title="깃허브로 이동">
+        <a
+          href="https://github.com/PpoSil"
+          target="_blank"
+          rel="noreferrer"
+          title="깃허브로 이동"
+        >
           <p>Github</p>
           <GitHubIcon />
         </a>

@@ -7,7 +7,7 @@ export const IntroSection = styled.section`
   background-color: var(--black);
   color: var(--white);
 
-  border-radius: 2rem;
+  /* border-top: 1px solid var(--sgray); */
 `;
 
 export const IntroPattern = styled.div`
@@ -94,6 +94,8 @@ export const ProjectSimple = styled.ul`
   margin-top: 100px;
   font-size: 1.1rem;
 
+  /* border-bottom: 1px solid var(--sgray); */
+
   > li {
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -124,6 +126,4 @@ export const ProjectSimple = styled.ul`
       margin-top: 10px;
     }
   }
-
-  > li:
 `;
