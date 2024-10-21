@@ -63,7 +63,7 @@ export const Preview = styled.div`
         object-fit: cover;
         border-radius: 1rem;
         //border 를 안으로 향하게
-        border: 1px solid var(--ssgray);
+        border: 1px solid var(--tblack);
       }
 
       // 이미지 설명은 미리보기에서 렌더링 되지 않음
@@ -170,6 +170,10 @@ export const ContentsContainer = styled.div`
 
       font-size: 1.2rem;
       font-variation-settings: 'wght' 600;
+
+      &:nth-of-type(2) {
+        margin-top: 2rem;
+      }
     }
 
     > p {
@@ -203,10 +207,15 @@ export const ContentsContainer = styled.div`
 
       cursor: pointer;
     }
+
     > div {
       // 사진 설명 기준점 relative로 설정
       position: relative;
       margin-bottom: 20px;
+
+      &:first-of-type {
+        margin-top: 1rem;
+      }
 
       > p {
         > img {
@@ -214,13 +223,22 @@ export const ContentsContainer = styled.div`
           height: 100%;
           margin: 0;
           object-fit: cover;
+
+          border-radius: 1rem;
+          border: 1px solid var(--gblack);
         }
 
         // 부모 div 를 기준으로 좌측 상단 고정
         > span {
           position: absolute;
-          top: 0;
-          left: 0;
+          top: 1rem;
+          left: 1rem;
+
+          line-height: 1;
+          padding: 5px 10px;
+
+          border-radius: 2rem;
+          background-color: var(--tblack);
         }
       }
     }

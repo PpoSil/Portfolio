@@ -8,7 +8,7 @@ const intro = () => {
       <IntroPattern>
         <div />
       </IntroPattern>
-      <IntroTitle>Frontend dev</IntroTitle>
+      <IntroTitle>Frontend Dev</IntroTitle>
       <IntroTitle>An Solbi.</IntroTitle>
 
       <Contacts>
@@ -21,23 +21,31 @@ const intro = () => {
         <span>
           <p>solbi1996@gmail.com</p>
         </span>
-        <span>
+        <a href="https://github.com/PpoSil" target="_blank" rel="noreferrer" title="깃허브로 이동">
           <p>Github</p>
           <GitHubIcon />
-        </span>
+        </a>
         <span>
           <p>삼성 청년 SW 아카데미 9기</p>
         </span>
       </Contacts>
 
       <ProjectSimple>
-        <span>[ 프로젝트 이력 ]</span>
-        <li>Heul-git ( SSAFY )</li>
+        {/* <span>[ 프로젝트 이력 ]</span> */}
         <li>
-          Have-it ( SSAFY ) <span>수상: 삼성 청년 SW 아카데미 우수상</span>
+          <div />
+          개발자 SNS, Heul-git
         </li>
         <li>
-          SSTUDE-HOUSE ( SSAFY ) <span>수상: 삼성 청년 SW 아카데미 우수상 및 결선발표회 입상</span>
+          <div />
+          체력 증진 프로젝트, Have-it <br />
+          <span>삼성 청년 SW 아카데미 우수상</span>
+        </li>
+        <li>
+          <div />
+          컬러 기반 스마트미러, SSTUDE-HOUSE
+          <br />
+          <span>삼성 청년 SW 아카데미 우수상 및 결선발표회 입상</span>
         </li>
       </ProjectSimple>
     </IntroSection>

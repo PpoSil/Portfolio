@@ -24,20 +24,29 @@ import Card from './card.jsx';
 import ProjectModal from './projectModal.jsx';
 
 import { CategoryTitle } from '@/app/global.css.js';
-import { ProjectsSection, ProjectPattern, CardContainer, ProjectTopbar, ProjectExitButton } from './projects.css';
+import {
+  ProjectsSection,
+  ProjectPattern,
+  CardContainer,
+  ProjectTopbar,
+  ProjectExitButton,
+} from './projects.css';
 
 // Heul-git 프로젝트
-import HeulGitPictures from '@/app/projects/heul-git/pictures.mdx';
+import HeulGitPreviewPictures from '@/app/projects/heul-git/previewPictures.mdx';
+import HeulGitDetailsPictures from '@/app/projects/heul-git/detailsPictures.mdx';
 import HeulGitOverview from '@/app/projects/heul-git/overview.mdx';
 import HeulGitContents from '@/app/projects/heul-git/contents.mdx';
 
 // Have-it 프로젝트
-import HaveItPictures from '@/app/projects/have-it/pictures.mdx';
+import HaveItPreviewPictures from '@/app/projects/have-it/previewPictures.mdx';
+import HaveItDetailsPictures from '@/app/projects/have-it/detailsPictures.mdx';
 import HaveItOverview from '@/app/projects/have-it/overview.mdx';
 import HaveItContents from '@/app/projects/have-it/contents.mdx';
 
 // SSTUDE-HOUSE 프로젝트
-import SstudePictures from '@/app/projects/sstude-house/pictures.mdx';
+import SstudePreviewPictures from '@/app/projects/sstude-house/previewPictures.mdx';
+import SstudeDetailsPictures from '@/app/projects/sstude-house/detailsPictures.mdx';
 import SstudeOverview from '@/app/projects/sstude-house/overview.mdx';
 import SstudeContents from '@/app/projects/sstude-house/contents.mdx';
 
@@ -91,7 +100,8 @@ const Projects = () => {
           overview={
             <>
               깃허브 오픈 API를 활용한 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자 전용 SNS 서비스.
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자
+              전용 SNS 서비스.
             </>
           }
           onClick={() => {
@@ -119,7 +129,8 @@ const Projects = () => {
             <>
               사용자의 일상을 편안하게 만들기 위한
               <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차세대 AIoT 프로젝트, 스마트 미러.
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차세대
+              AIoT 프로젝트, 스마트 미러.
             </>
           }
           dark
@@ -132,13 +143,37 @@ const Projects = () => {
       {showProjectNumb !== 0 && <ProjectMenu closeProject={closeProject} />}
 
       {/* 흘깃 프로젝트 모달 */}
-      {showProjectNumb === 1 && <ProjectModal Pictures={HeulGitPictures} Overview={HeulGitOverview} Contents={HeulGitContents} />}
+      {showProjectNumb === 1 && (
+        <ProjectModal
+          PreviewPictures={HeulGitPreviewPictures}
+          DetailsPictures={HeulGitDetailsPictures}
+          Overview={HeulGitOverview}
+          Contents={HeulGitContents}
+          PicturesIdx={[0, 1, 2, 3]}
+        />
+      )}
 
       {/* 해브잇 프로젝트 모달 */}
-      {showProjectNumb === 2 && <ProjectModal Pictures={HaveItPictures} Overview={HaveItOverview} Contents={HaveItContents} />}
+      {showProjectNumb === 2 && (
+        <ProjectModal
+          PreviewPictures={HaveItPreviewPictures}
+          DetailsPictures={HaveItDetailsPictures}
+          Overview={HaveItOverview}
+          Contents={HaveItContents}
+          PicturesIdx={[0, 8, 4, 3]}
+        />
+      )}
 
       {/* 싸뛰드 하우스 프로젝트 모달 */}
-      {showProjectNumb === 3 && <ProjectModal Pictures={SstudePictures} Overview={SstudeOverview} Contents={SstudeContents} />}
+      {showProjectNumb === 3 && (
+        <ProjectModal
+          PreviewPictures={SstudePreviewPictures}
+          DetailsPictures={SstudeDetailsPictures}
+          Overview={SstudeOverview}
+          Contents={SstudeContents}
+          PicturesIdx={[0, 2, 4, 6]}
+        />
+      )}
     </ProjectsSection>
   );
 };

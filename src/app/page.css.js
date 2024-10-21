@@ -12,7 +12,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 
   background-color: var(--black);
-  mask-image: linear-gradient(to right, transparent 3%, black 20%, black 80%, transparent 97%);
+  mask-image: linear-gradient(to right, transparent 1%, black 15%, black 85%, transparent 99%);
 
   > img {
     opacity: 0.3;

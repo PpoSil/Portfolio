@@ -46,6 +46,7 @@ export const SkillCategory = styled.h2`
   padding-bottom: 0.5rem;
 
   font-variation-settings: 'wght' 400;
+  font-size: 1.3rem;
 `;
 
 export const SkillDescription = styled.div`
@@ -53,7 +54,7 @@ export const SkillDescription = styled.div`
     display: inline-block;
     padding-right: 10px;
 
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
     word-spacing: 0.4rem;
   }
