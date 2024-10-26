@@ -28,7 +28,10 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="kr" className={`${fontEnglishHl.variable} ${fontEnglishFl.variable} ${fontKorean.variable}`}>
+    <html
+      lang="kr"
+      className={`${fontEnglishHl.variable} ${fontEnglishFl.variable} ${fontKorean.variable}`}
+    >
       <body>
         <main>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>

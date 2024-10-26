@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const IntroSection = styled.section`
   position: relative;
-  padding-bottom: 150px;
+  padding-bottom: 3rem;
 
   background-color: var(--black);
   color: var(--white);
@@ -51,7 +51,8 @@ export const IntroTitle = styled.h1`
 // 연락처 컨테이너
 export const Contacts = styled.div`
   > a,
-  span {
+  span,
+  button {
     display: inline-flex;
     width: fit-content;
     padding: 5px;
@@ -66,6 +67,7 @@ export const Contacts = styled.div`
     border: 1px solid var(--sgray);
 
     > p {
+      font-size: 1rem;
       line-height: 1.4rem;
       letter-spacing: 0.1rem;
       margin: 0 5px;
@@ -77,6 +79,10 @@ export const Contacts = styled.div`
       width: 1.3rem;
       height: 1.3rem;
     }
+  }
+
+  > button {
+    cursor: pointer;
   }
 
   > span:first-of-type {
@@ -91,7 +97,7 @@ export const ProjectSimple = styled.ul`
   position: relative;
 
   padding: 0 0.5rem;
-  margin-top: 100px;
+  margin-top: 6rem;
   font-size: 1.1rem;
 
   /* border-bottom: 1px solid var(--sgray); */

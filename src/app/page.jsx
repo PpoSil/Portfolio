@@ -22,7 +22,13 @@ const Page = () => {
 
       {/* 이미지 컨테이너 */}
       <ImageContainer>
-        <Image src="/solbw2.png" fill style={{ objectFit: 'cover' }} priority alt="sol" />
+        <Image
+          src="/solbw2.png"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+          alt="sol"
+        />
       </ImageContainer>
 
       {/* 프로젝트 컨테이너 */}

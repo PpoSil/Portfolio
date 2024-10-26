@@ -33,14 +33,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --black: rgb(18, 18, 18);
-    --tblack: rgb(40, 40, 40);
-    --white: rgb(245, 245, 245);
-    --twhite: rgba(245, 245, 245, 0.5);
-    --lgray: rgb(190, 190, 190);
-    --gray: rgb(166, 166, 166);
-    --sgray: rgb(61, 61, 61);
-    /* 2d2d2d 값을 rgb로 변경 */
+    --black: #121212;
+    --lblack: #282828;
+    --white: #f5f5f5;
+    --lgray: #bebebe;
+    --gray: #a6a6a6;
+    --sgray: #3d3d3d;
+    --highlight: #a2a7ff
   }
 
   * {

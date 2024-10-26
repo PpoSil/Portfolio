@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 import {
@@ -7,8 +10,20 @@ import {
   ProjectSimple,
   IntroPattern,
 } from './intro.css.js';
+import Modal from '@/app/common/modal.jsx';
 
-const intro = () => {
+const Intro = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const copyToClipboard = (text) => {
+    try {
+      navigator.clipboard.writeText(text);
+      setIsModalOpen(true);
+    } catch {
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <IntroSection>
       <IntroPattern>
@@ -21,12 +36,24 @@ const intro = () => {
         <span>
           <p>안솔비</p>
         </span>
-        <span>
+        <button
+          type="button"
+          onClick={() => {
+            copyToClipboard('010-2991-1153');
+          }}
+          title="전화번호 복사"
+        >
           <p>010 · 4202 · 3113</p>
-        </span>
-        <span>
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            copyToClipboard('solbi1996@gmail.com');
+          }}
+          title="이메일 복사"
+        >
           <p>solbi1996@gmail.com</p>
-        </span>
+        </button>
         <a
           href="https://github.com/PpoSil"
           target="_blank"
@@ -59,7 +86,11 @@ const intro = () => {
           <span>삼성 청년 SW 아카데미 우수상 및 결선발표회 입상</span>
         </li>
       </ProjectSimple>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        클립보드에 저장완료
+      </Modal>
     </IntroSection>
   );
 };
-export default intro;
+
+export default Intro;

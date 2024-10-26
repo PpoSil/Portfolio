@@ -30,7 +30,7 @@ import {
   CardContainer,
   ProjectTopbar,
   ProjectExitButton,
-} from './projects.css';
+} from './projects.css.js';
 
 // Heul-git 프로젝트
 import HeulGitPreviewPictures from '@/app/projects/heul-git/previewPictures.mdx';

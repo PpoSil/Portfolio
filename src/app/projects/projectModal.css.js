@@ -90,8 +90,9 @@ export const OverviewContainer = styled.div`
     justify-content: space-between;
 
     > h1 {
-      padding: 10px 0;
+      padding: 20px 0 18px 0;
 
+      line-height: 1;
       font-family: var(--font-fira-code);
       font-size: 2.5rem;
       font-variation-settings: 'wght' 600;
@@ -104,7 +105,7 @@ export const OverviewContainer = styled.div`
       &:hover {
         > svg path {
           /* fill: var(--gray); */
-          fill: #898dd9;
+          fill: var(--highlight);
         }
       }
 
@@ -135,10 +136,17 @@ export const OverviewContainer = styled.div`
   }
 
   > p {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+
+    &:nth-last-of-type(2) {
+      margin-top: 2rem;
+
+      color: var(--lgray);
+      letter-spacing: 1px;
+      font-variation-settings: 'wght' 500;
+    }
 
     &:last-of-type {
-      margin-top: 2rem;
       margin-bottom: 0;
 
       color: var(--lgray);
@@ -180,9 +188,7 @@ export const ContentsContainer = styled.div`
       font-size: 1.1rem;
 
       > strong {
-        /* color: #e06a76; */
-        /* color: #c08bbc; */
-        color: #898dd9;
+        color: var(--highlight);
         font-variation-settings: 'wght' 700;
       }
     }
