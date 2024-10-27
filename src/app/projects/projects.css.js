@@ -57,6 +57,9 @@ export const CardContainer = styled.div`
 export const ProjectTopbar = styled.div`
   display: flex;
   align-items: center;
+
+  position: relative;
+
   width: 100%;
   height: 40px;
 
@@ -69,8 +72,10 @@ export const ProjectTopbar = styled.div`
   background-color: var(--black);
 
   > div {
-    margin-left: auto;
-    margin-right: 5px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    right: 50%;
 
     color: var(--white);
   }

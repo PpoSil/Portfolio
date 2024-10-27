@@ -8,14 +8,6 @@ import { useState, useEffect } from 'react';
 
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 
-// 동그라미로 쌓여진 화살표 아이콘
-// import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-// import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-
-// 세모로 쌓여진 화살표 아이콘
-// import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-// import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
 // 화살표 아이콘
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -56,10 +48,8 @@ const Projects = () => {
   const searchParams = useSearchParams();
   const projectName = searchParams.get('project');
 
-  // 프로젝트 상세보기 모달
   const [showProjectNumb, setShowProjectNumb] = useState(0);
 
-  // 주소 파라미터에 따라 프로젝트 상세 모달 렌더링 여부 결정
   useEffect(() => {
     if (projectName === null) {
       document.body.style.overflow = 'auto';
@@ -78,13 +68,23 @@ const Projects = () => {
   }, [projectName]);
 
   const openProject = (name) => {
-    // 프로젝트 상세보기 파라미터 추가
     router.push(`${pathname}?project=${name}`, { scroll: false });
   };
 
   const closeProject = () => {
-    // 프로젝트 상세보기 모달 닫기, 뒤로가기
     router.back();
+  };
+
+  const prevProject = () => {
+    if (showProjectNumb > 1) {
+      setShowProjectNumb(showProjectNumb - 1);
+    }
+  };
+
+  const nextProject = () => {
+    if (showProjectNumb < 3) {
+      setShowProjectNumb(showProjectNumb + 1);
+    }
   };
 
   return (
@@ -92,7 +92,7 @@ const Projects = () => {
       <ProjectPattern />
       <CategoryTitle>Projects</CategoryTitle>
       <CardContainer>
-        {/* 흘깃 프로젝트 카드 */}
+        {/* 카드 컴포넌트들 */}
         <Card
           title="Heul-Git"
           contents="Web / Mobile / Community"
@@ -108,8 +108,6 @@ const Projects = () => {
             openProject('heul-git');
           }}
         />
-
-        {/* 헤브잇 프로젝트 카드 */}
         <Card
           title="Have-It"
           contents="Web / 3D / Metaverse / Mobile"
@@ -119,8 +117,6 @@ const Projects = () => {
             openProject('have-it');
           }}
         />
-
-        {/* 싸뛰드 하우스 프로젝트 카드 */}
         <Card
           title="SSTUDE-HOUSE"
           basicImage="/sstude/card.png"
@@ -140,9 +136,16 @@ const Projects = () => {
         />
       </CardContainer>
 
-      {showProjectNumb !== 0 && <ProjectMenu closeProject={closeProject} />}
+      {showProjectNumb !== 0 && (
+        <ProjectMenu
+          closeProject={closeProject}
+          prevProject={prevProject}
+          nextProject={nextProject}
+          showProjectNumb={showProjectNumb}
+        />
+      )}
 
-      {/* 흘깃 프로젝트 모달 */}
+      {/* 프로젝트 모달 */}
       {showProjectNumb === 1 && (
         <ProjectModal
           PreviewPictures={HeulGitPreviewPictures}
@@ -152,8 +155,6 @@ const Projects = () => {
           PicturesIdx={[0, 1, 2, 3]}
         />
       )}
-
-      {/* 해브잇 프로젝트 모달 */}
       {showProjectNumb === 2 && (
         <ProjectModal
           PreviewPictures={HaveItPreviewPictures}
@@ -163,8 +164,6 @@ const Projects = () => {
           PicturesIdx={[0, 8, 4, 3]}
         />
       )}
-
-      {/* 싸뛰드 하우스 프로젝트 모달 */}
       {showProjectNumb === 3 && (
         <ProjectModal
           PreviewPictures={SstudePreviewPictures}
@@ -178,7 +177,12 @@ const Projects = () => {
   );
 };
 
-const ProjectMenu = ({ closeProject }) => {
+const ProjectMenu = ({
+  closeProject,
+  prevProject,
+  nextProject,
+  showProjectNumb,
+}) => {
   return (
     <ProjectTopbar>
       <ProjectExitButton type="button" onClick={closeProject}>
@@ -186,14 +190,20 @@ const ProjectMenu = ({ closeProject }) => {
         &nbsp;원문으로
       </ProjectExitButton>
       <div>
-        {/* <ArrowCircleLeftIcon />
-        <ArrowCircleRightIcon /> */}
-
-        {/* <ArrowLeftIcon />
-        <ArrowRightIcon /> */}
-
-        <KeyboardArrowLeftIcon />
-        <KeyboardArrowRightIcon />
+        <KeyboardArrowLeftIcon
+          onClick={prevProject}
+          style={{
+            cursor: showProjectNumb > 1 ? 'pointer' : 'not-allowed',
+            opacity: showProjectNumb > 1 ? 1 : 0.5,
+          }}
+        />
+        <KeyboardArrowRightIcon
+          onClick={nextProject}
+          style={{
+            cursor: showProjectNumb < 3 ? 'pointer' : 'not-allowed',
+            opacity: showProjectNumb < 3 ? 1 : 0.5,
+          }}
+        />
       </div>
     </ProjectTopbar>
   );

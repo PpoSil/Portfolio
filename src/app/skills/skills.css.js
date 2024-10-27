@@ -28,6 +28,8 @@ export const SkillsPattern = styled.div`
 `;
 
 export const Skill = styled.article`
+  position: relative;
+
   width: fit-content;
   margin: 15px 0;
   padding: 30px;
@@ -40,6 +42,32 @@ export const Skill = styled.article`
     background-color: var(--white);
     color: var(--black);
   }
+
+  transition: all 0.3s ease;
+`;
+
+export const ArrowButton = styled.button`
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg)' : 'rotate(225deg)')};
+  transition: transform 0.3s ease;
+`;
+
+export const SkillDescriptionDetails = styled.div`
+  margin-top: 10px;
+  padding: 10px 0;
+
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  word-spacing: 0.4rem;
 `;
 
 export const SkillCategory = styled.h2`
