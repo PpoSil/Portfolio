@@ -3,10 +3,10 @@ import { CardPositionSlider, CardWrapper } from './card.css';
 const Card = ({
   title,
   contents = '',
-  overview,
   basicImage,
   onClick,
   dark = false,
+  children,
 }) => {
   return (
     <CardPositionSlider>
@@ -17,7 +17,7 @@ const Card = ({
       >
         <h2>{title}</h2>
         <span>{contents}</span>
-        <p>{overview}</p>
+        <p>{children}</p>
       </CardWrapper>
     </CardPositionSlider>
   );

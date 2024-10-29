@@ -5,7 +5,7 @@ import Image from 'next/image.js';
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 
 import Intro from '@/app/intro/intro.jsx';
-import Skills from '@/app/skills/skills.jsx';
+import Techs from '@/app/skills/skills.jsx';
 import Project from '@/app/projects/projects.jsx';
 
 import { ImageContainer, BackButton } from './page.css.js';
@@ -35,7 +35,7 @@ const Page = () => {
       <Project />
 
       {/* 기술스택 컨테이너? */}
-      <Skills />
+      <Techs />
 
       {/* 상단으로 이동 버튼 */}
       <BackButton type="button" onClick={topScroll}>

@@ -1,66 +1,96 @@
 // import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useState } from 'react';
+
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { CategoryTitle } from '@/app/global.css.js';
 import {
-  SkillsSection,
-  SkillsPattern,
-  Skill,
-  SkillCategory,
-  SkillDescription,
-  SkillDescriptionDetails,
+  TechsSection,
+  TechsPattern,
+  TechArticle,
+  TechCategory,
+  TechDescription,
   ArrowButton,
+  TechDescriptionDetail,
+  TechDetails,
 } from './skills.css.js';
 
-const Skills = () => {
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+const Techs = () => {
+  // const [isFrontDetailOpen, setIsFrontDetailOpen] = useState(false);
+  const [isGameDetailOpen, setIsGameDetailOpen] = useState(false);
+  const [isCodeDetailOpen, setIsCodeDetailOpen] = useState(false);
+  const [isCoopDetailOpen, setIsCoopDetailOpen] = useState(false);
 
-  const dropDownDetails = () => {
-    setIsDetailsOpen(!isDetailsOpen);
+  // const toggleFront = () => {
+  //   setIsFrontDetailOpen(!isFrontDetailOpen);
+  // };
+
+  const toggleGame = () => {
+    setIsGameDetailOpen(!isGameDetailOpen);
+  };
+
+  const toggleCode = () => {
+    setIsCodeDetailOpen(!isCodeDetailOpen);
+  };
+
+  const toggleCoop = () => {
+    setIsCoopDetailOpen(!isCoopDetailOpen);
   };
 
   return (
-    <SkillsSection>
-      <SkillsPattern />
-      <CategoryTitle>Skills</CategoryTitle>
-      <Skill>
-        <SkillCategory>Frontend</SkillCategory>
-        <ArrowButton onClick={dropDownDetails} $isOpen={isDetailsOpen} />
-        <SkillDescription>
-          <p>
-            {
-              '> JavaScript / React / Redux / Vue.js / Next.js / Styled Components'
-            }
-          </p>
-        </SkillDescription>
-        {isDetailsOpen && (
-          <SkillDescriptionDetails>
-            asdzdasdasdasdasdsad asdasdasdasd asdas dsad asdasdasdadasdasd
-            asdasdas asdasdsadasdas sadsdas asdasdas
-          </SkillDescriptionDetails>
-        )}
-      </Skill>
+    <TechsSection>
+      <TechsPattern />
+      <CategoryTitle>Techs</CategoryTitle>
 
-      <Skill>
-        <SkillCategory>Game dev</SkillCategory>
-        <SkillDescription>
-          <p>{'> Unity / C#'}</p>
-        </SkillDescription>
-      </Skill>
+      {/* 프론트엔드 개발 기술스택 */}
+      <Tech
+        category="Frontend"
+        stack="JavaScript / React / Redux / Vue.js / Next.js / Styled Components"
+      >
+        동해물과
+      </Tech>
 
-      <Skill>
-        <SkillCategory>Code Management</SkillCategory>
-        <SkillDescription>
-          <p>{'> Git / Github / GitLab / ESlint / Prettier'}</p>
-        </SkillDescription>
-      </Skill>
+      {/* 게임 개발 기술스택 */}
+      <Tech category="Game dev" stack="Unity / C#">
+        동해물과
+      </Tech>
 
-      <Skill>
-        <SkillCategory>Cooperation</SkillCategory>
-        <SkillDescription>
-          <p>{'> Jira / Notion / Mattermost / Figma / Source Tree'}</p>
-        </SkillDescription>
-      </Skill>
-    </SkillsSection>
+      {/* 코드 관리 기술스택 */}
+      <Tech
+        category="Code Management"
+        stack="Git / Github / GitLab / ESlint / Prettier"
+      >
+        동해물과
+      </Tech>
+
+      {/* 협업 도구 기술스택 */}
+      <Tech
+        category="Cooperation"
+        stack="Jira / Notion / Mattermost / Figma / Source Tree"
+      >
+        동해물과
+      </Tech>
+    </TechsSection>
   );
 };
-export default Skills;
+
+const Tech = ({ category, stack, children }) => {
+  return (
+    <TechArticle>
+      <TechDetails>
+        <summary>
+          <h2>
+            {category}
+            <span>
+              <ArrowBackIosNewRoundedIcon className="icon-fold" />
+              <ArrowBackIosNewRoundedIcon className="icon-open" />
+            </span>
+          </h2>
+          {stack}
+        </summary>
+        <hr />
+        <div>{children}</div>
+      </TechDetails>
+    </TechArticle>
+  );
+};
+export default Techs;

@@ -100,3 +100,14 @@ export const ProjectExitButton = styled.button`
     background-color: var(--sgray);
   }
 `;
+
+export const ProjectNaviagate = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+
+  > svg {
+    cursor: pointer;
+    font-size: 28px;
+  }
+`;

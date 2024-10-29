@@ -22,6 +22,7 @@ import {
   CardContainer,
   ProjectTopbar,
   ProjectExitButton,
+  ProjectNaviagate,
 } from './projects.css.js';
 
 // Heul-git 프로젝트
@@ -67,23 +68,30 @@ const Projects = () => {
     }
   }, [projectName]);
 
+  // pathname = http://localhost:3000/
+  // ?project=
+  // heul-git
   const openProject = (name) => {
     router.push(`${pathname}?project=${name}`, { scroll: false });
   };
 
   const closeProject = () => {
-    router.back();
+    router.push(`${pathname}`);
   };
 
   const prevProject = () => {
-    if (showProjectNumb > 1) {
-      setShowProjectNumb(showProjectNumb - 1);
+    if (showProjectNumb === 2) {
+      openProject('heul-git');
+    } else {
+      openProject('have-it');
     }
   };
 
   const nextProject = () => {
-    if (showProjectNumb < 3) {
-      setShowProjectNumb(showProjectNumb + 1);
+    if (showProjectNumb === 1) {
+      openProject('have-it');
+    } else {
+      openProject('sstude-house');
     }
   };
 
@@ -97,43 +105,38 @@ const Projects = () => {
           title="Heul-Git"
           contents="Web / Mobile / Community"
           basicImage="/heul-git/card.png"
-          overview={
-            <>
-              깃허브 오픈 API를 활용한 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자
-              전용 SNS 서비스.
-            </>
-          }
           onClick={() => {
             openProject('heul-git');
           }}
-        />
+        >
+          깃허브 오픈 API를 활용한 <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개발자
+          전용 SNS 서비스.
+        </Card>
         <Card
           title="Have-It"
           contents="Web / 3D / Metaverse / Mobile"
           basicImage="/have-it/card.png"
-          overview="사용자 헬스데이터 기반의 3D 메타버스 게임."
           onClick={() => {
             openProject('have-it');
           }}
-        />
+        >
+          사용자 헬스데이터 기반의 3D 메타버스 게임.
+        </Card>
         <Card
           title="SSTUDE-HOUSE"
           basicImage="/sstude/card.png"
           contents="Web / AIOT / Embedded"
-          overview={
-            <>
-              사용자의 일상을 편안하게 만들기 위한
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차세대
-              AIoT 프로젝트, 스마트 미러.
-            </>
-          }
           dark
           onClick={() => {
             openProject('sstude-house');
           }}
-        />
+        >
+          사용자의 일상을 편안하게 만들기 위한
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차세대
+          AIoT 프로젝트, 스마트 미러.
+        </Card>
       </CardContainer>
 
       {showProjectNumb !== 0 && (
@@ -189,22 +192,22 @@ const ProjectMenu = ({
         <ArticleRoundedIcon />
         &nbsp;원문으로
       </ProjectExitButton>
-      <div>
+      <ProjectNaviagate>
         <KeyboardArrowLeftIcon
           onClick={prevProject}
           style={{
-            cursor: showProjectNumb > 1 ? 'pointer' : 'not-allowed',
-            opacity: showProjectNumb > 1 ? 1 : 0.5,
+            pointerEvents: showProjectNumb > 1 ? 'auto' : 'none',
+            opacity: showProjectNumb > 1 ? 1 : 0.25,
           }}
         />
         <KeyboardArrowRightIcon
           onClick={nextProject}
           style={{
-            cursor: showProjectNumb < 3 ? 'pointer' : 'not-allowed',
-            opacity: showProjectNumb < 3 ? 1 : 0.5,
+            pointerEvents: showProjectNumb < 3 ? 'auto' : 'none',
+            opacity: showProjectNumb < 3 ? 1 : 0.25,
           }}
         />
-      </div>
+      </ProjectNaviagate>
     </ProjectTopbar>
   );
 };

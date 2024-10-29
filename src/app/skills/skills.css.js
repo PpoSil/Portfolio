@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SkillsSection = styled.section`
+export const TechsSection = styled.section`
   position: relative;
   color: var(--white);
 
@@ -9,14 +9,13 @@ export const SkillsSection = styled.section`
   }
 `;
 
-export const SkillsPattern = styled.div`
+export const TechsPattern = styled.div`
   position: absolute;
-  top: 50%;
+  top: -30px;
   right: -100px;
   width: 800px;
   height: 800px;
   z-index: -1;
-  transform: translateY(-45%);
 
   /* background-color: var(--white); */
   border-radius: 50%;
@@ -27,7 +26,7 @@ export const SkillsPattern = styled.div`
   }
 `;
 
-export const Skill = styled.article`
+export const TechArticle = styled.article`
   position: relative;
 
   width: fit-content;
@@ -46,6 +45,107 @@ export const Skill = styled.article`
   transition: all 0.3s ease;
 `;
 
+export const TechDetails = styled.details`
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  word-spacing: 0.4rem;
+
+  > summary {
+    list-style: none;
+    cursor: pointer;
+
+    > h2 {
+      width: fit-content;
+      padding-bottom: 1rem;
+
+      display: flex;
+      align-items: center;
+
+      font-size: 1.5rem;
+      font-variation-settings: 'wght' 400;
+      line-height: 1;
+
+      > span {
+        margin-left: 0.5rem;
+
+        width: 20px;
+        height: 20px;
+
+        overflow: hidden;
+
+        > svg {
+          display: block;
+          width: 20px;
+          height: 20px;
+
+          transition:
+            transform 0.4s ease,
+            opacity 0.15s ease;
+        }
+
+        > svg.icon-fold {
+          transform: translateY(-20px) rotate(90deg);
+          opacity: 0;
+        }
+
+        > svg.icon-open {
+          transform: translateY(-20px) rotate(-90deg);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[open] {
+    > summary > h2 > span {
+      svg.icon-fold {
+        transform: translateY(0) rotate(90deg);
+        opacity: 1;
+      }
+
+      svg.icon-open {
+        transform: translateY(0) rotate(-90deg);
+        opacity: 0;
+      }
+    }
+  }
+
+  > hr {
+    margin: 8px 0 6px 0;
+    border: none;
+    border-bottom: 1px solid var(--lgray);
+  }
+
+  > div {
+    max-width: 657.4px;
+  }
+`;
+
+export const TechCategory = styled.h2`
+  padding-bottom: 1rem;
+
+  font-variation-settings: 'wght' 400;
+  font-size: 1.5rem;
+`;
+
+export const TechDescription = styled.h3`
+  display: inline-block;
+
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  word-spacing: 0.4rem;
+`;
+
+export const TechDescriptionDetail = styled.span`
+  display: block;
+  max-width: 657.4px;
+  margin-top: 10px;
+
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  word-spacing: 0.4rem;
+`;
+
 export const ArrowButton = styled.button`
   position: absolute;
   top: 30px;
@@ -59,31 +159,4 @@ export const ArrowButton = styled.button`
 
   transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg)' : 'rotate(225deg)')};
   transition: transform 0.3s ease;
-`;
-
-export const SkillDescriptionDetails = styled.div`
-  margin-top: 10px;
-  padding: 10px 0;
-
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  word-spacing: 0.4rem;
-`;
-
-export const SkillCategory = styled.h2`
-  padding-bottom: 0.5rem;
-
-  font-variation-settings: 'wght' 400;
-  font-size: 1.3rem;
-`;
-
-export const SkillDescription = styled.div`
-  > p {
-    display: inline-block;
-    padding-right: 10px;
-
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    word-spacing: 0.4rem;
-  }
 `;
