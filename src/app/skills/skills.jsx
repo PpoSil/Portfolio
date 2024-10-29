@@ -1,5 +1,4 @@
 // import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useState } from 'react';
 
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { CategoryTitle } from '@/app/global.css.js';
@@ -7,35 +6,10 @@ import {
   TechsSection,
   TechsPattern,
   TechArticle,
-  TechCategory,
-  TechDescription,
-  ArrowButton,
-  TechDescriptionDetail,
   TechDetails,
 } from './skills.css.js';
 
 const Techs = () => {
-  // const [isFrontDetailOpen, setIsFrontDetailOpen] = useState(false);
-  const [isGameDetailOpen, setIsGameDetailOpen] = useState(false);
-  const [isCodeDetailOpen, setIsCodeDetailOpen] = useState(false);
-  const [isCoopDetailOpen, setIsCoopDetailOpen] = useState(false);
-
-  // const toggleFront = () => {
-  //   setIsFrontDetailOpen(!isFrontDetailOpen);
-  // };
-
-  const toggleGame = () => {
-    setIsGameDetailOpen(!isGameDetailOpen);
-  };
-
-  const toggleCode = () => {
-    setIsCodeDetailOpen(!isCodeDetailOpen);
-  };
-
-  const toggleCoop = () => {
-    setIsCoopDetailOpen(!isCoopDetailOpen);
-  };
-
   return (
     <TechsSection>
       <TechsPattern />
