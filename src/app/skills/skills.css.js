@@ -117,7 +117,7 @@ export const TechDetails = styled.details`
   }
 
   > div {
-    max-width: 657.4px;
+    max-width: 871px;
   }
 `;
 
