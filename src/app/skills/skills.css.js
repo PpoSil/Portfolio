@@ -84,13 +84,13 @@ export const TechDetails = styled.details`
         }
 
         > svg.icon-fold {
-          transform: translateY(-20px) rotate(90deg);
-          opacity: 0;
+          transform: translateY(0) rotate(-90deg);
+          opacity: 1;
         }
 
         > svg.icon-open {
-          transform: translateY(-20px) rotate(-90deg);
-          opacity: 1;
+          transform: translateY(0) rotate(90deg);
+          opacity: 0;
         }
       }
     }
@@ -99,25 +99,34 @@ export const TechDetails = styled.details`
   &[open] {
     > summary > h2 > span {
       svg.icon-fold {
-        transform: translateY(0) rotate(90deg);
-        opacity: 1;
+        transform: translateY(-20px) rotate(-90deg);
+        opacity: 0;
       }
 
       svg.icon-open {
-        transform: translateY(0) rotate(-90deg);
-        opacity: 0;
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 1;
       }
     }
   }
 
   > hr {
-    margin: 8px 0 6px 0;
+    margin: 8px 0 16px 0;
     border: none;
     border-bottom: 1px solid var(--lgray);
   }
 
   > div {
     max-width: 871px;
+
+    line-height: 1.5;
+    word-spacing: normal;
+    font-variation-settings: 'wght' 430;
+
+    > span {
+      opacity: 0.75;
+      font-variation-settings: 'wght' 390;
+    }
   }
 `;
 

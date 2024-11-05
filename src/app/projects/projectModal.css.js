@@ -193,6 +193,18 @@ export const ContentsContainer = styled.div`
       }
     }
 
+    &:nth-of-type(3) {
+      > p {
+        margin-bottom: 0.5rem;
+        /* color: #f; */
+        font-variation-settings: 'wght' 390;
+
+        > strong {
+          font-variation-settings: 'wght' 430;
+        }
+      }
+    }
+
     > hr {
       margin: 8px 0 7px 0;
       border: none;

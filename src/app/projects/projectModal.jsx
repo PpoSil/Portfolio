@@ -29,7 +29,7 @@ const ProjectModal = ({
       if (!overview) return;
 
       overview.style.top =
-        window.innerHeight - 40 > overview.offsetHeight
+        window.innerHeight - 80 > overview.offsetHeight
           ? '0'
           : `${window.innerHeight - 120 - overview.offsetHeight}px`;
     };
