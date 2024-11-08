@@ -89,6 +89,14 @@ export const OverviewContainer = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    &:last-of-type {
+      margin-bottom: 10px;
+
+      color: var(--lgray);
+      letter-spacing: 1px;
+      font-variation-settings: 'wght' 500;
+    }
+
     > h1 {
       padding: 20px 0 18px 0;
 
@@ -139,8 +147,6 @@ export const OverviewContainer = styled.div`
     margin-bottom: 10px;
 
     &:nth-last-of-type(2) {
-      margin-top: 2rem;
-
       color: var(--lgray);
       letter-spacing: 1px;
       font-variation-settings: 'wght' 500;
