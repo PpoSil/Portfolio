@@ -4,6 +4,7 @@ import Image from 'next/image.js';
 
 import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 
+import { Suspense } from 'react';
 import Intro from '@/app/intro/intro.jsx';
 import Techs from '@/app/skills/skills.jsx';
 import Project from '@/app/projects/projects.jsx';
@@ -32,7 +33,9 @@ const Page = () => {
       </ImageContainer>
 
       {/* 프로젝트 컨테이너 */}
-      <Project />
+      <Suspense>
+        <Project />
+      </Suspense>
 
       {/* 기술스택 컨테이너? */}
       <Techs />
